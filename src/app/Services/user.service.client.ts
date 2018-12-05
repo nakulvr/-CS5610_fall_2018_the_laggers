@@ -4,6 +4,8 @@ export class UserServiceClient {
       username: username,
       password: password
     };
+    console.log("user service");
+    console.log(username, password);
     return {
       username: 'hari',
       password: '123',

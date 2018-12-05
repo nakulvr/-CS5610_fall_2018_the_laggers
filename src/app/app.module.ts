@@ -10,6 +10,7 @@ import { ProfileComponent } from './profile/profile.component';
 import {routing} from './app.routing';
 import {FormsModule} from '@angular/forms';
 import {TVServiceClient} from './Services/TVServices';
+import {UserServiceClient} from './services/user.service.client';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {TVServiceClient} from './Services/TVServices';
     routing,
     FormsModule,
   ],
-  providers: [TVServiceClient],
+  providers: [TVServiceClient,
+    UserServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
