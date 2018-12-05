@@ -1,12 +1,23 @@
-<div class="container-fluid">
+<div class="container-fluid col-lg-12">
   <h1>Tele Connect</h1>
   <hr>
-  <a routerLink="/home">Home</a> |
-  <a routerLink="/login">Login</a> |
-  <a routerLink="/profile">Profile</a> |
-  <a routerLink="/register">Register</a>
+  <div class="col-lg-12">
+    <a routerLink="/home">Home</a> |
+    <a routerLink="/login">Login</a> |
+    <a routerLink="/profile">Profile</a> |
+    <a routerLink="/register">Register</a> |
+  </div>
+  <hr>
+  <div class="col-lg-12">
+    <input [(ngModel)]="username"  class="form-control col-lg-8" placeholder=" Search Query"/> <hr>
+    <button class="btn-primary btn col-lg-1">Search</button>
+  </div>
   <hr>
   <router-outlet>
 
   </router-outlet>
 </div>
+
+
+
+
