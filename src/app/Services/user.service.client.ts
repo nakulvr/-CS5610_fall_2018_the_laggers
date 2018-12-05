@@ -66,4 +66,21 @@ export class UserServiceClient {
     // });
   }
 
+  profile() {
+    return {
+      username: 'hari',
+      password: '123',
+      Firstname: 'hari',
+      lastname: 'siva',
+      email: 'a@a.com'
+    }
+      // return fetch('url',
+      // {
+      //   credentials: 'include',
+      // })
+      // .then(response => response.json());
+  }
+
+
+
 }
