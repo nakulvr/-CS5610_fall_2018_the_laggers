@@ -1,0 +1,35 @@
+<div class="container">
+  <h2> Profile </h2>
+  <div style="text-align: right">
+    <a class="btn btn-danger" (click)="logout()">
+      <i class="fa fa-sign-out" aria-hidden="true"></i>Logout
+    </a>
+  </div>
+
+  <div>
+    <label for="name" class="fields">Username</label>
+    <input [(ngModel)]="username" placeholder="Username" id="name"  class="form-control form-control-lg"required/>
+  </div>
+
+  <div>
+    <label for="fName" class="fields">Firstname</label>
+    <input [(ngModel)]="firstName" placeholder="First Name" id="fname" class="form-control form-control-lg" required/>
+  </div>
+
+  <div>
+    <label for="lname" class="fields">LastName</label>
+    <input [(ngModel)]="lastName" placeholder="Last Name" id="lname" class="form-control form-control-lg" required/>
+  </div>
+
+  <div>
+    <label for="email" class="fields">Email</label>
+    <input [(ngModel)]="email" placeholder="email@abc.com" id="email" class="form-control form-control-lg" required/>
+  </div>
+
+  <div>
+    <button (click)="update()" class="btn btn-lg btn-primary btn-block">
+      <i class="fa fa-check wbdv-update"></i>Update
+    </button>
+  </div>
+
+</div>
