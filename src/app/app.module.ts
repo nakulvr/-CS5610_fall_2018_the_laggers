@@ -10,6 +10,10 @@ import { ProfileComponent } from './profile/profile.component';
 import {routing} from './app.routing';
 import {FormsModule} from '@angular/forms';
 import {TVServiceClient} from './Services/TVServices';
+import { NewtvComponent } from './newtv/newtv.component';
+import { DiscoverComponent } from './discover/discover.component';
+import { UsersComponent } from './users/users.component';
+import { FeedComponent } from './feed/feed.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import {TVServiceClient} from './Services/TVServices';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    NewtvComponent,
+    DiscoverComponent,
+    UsersComponent,
+    FeedComponent
   ],
   imports: [
     BrowserModule,
