@@ -16,7 +16,10 @@ export class RegisterComponent implements OnInit {
   }
 
   register(username, password, verifyPassword) {
-
+    if (username.length === 0 || password.length === 0 || verifyPassword === 0){
+      alert('Please enter Proper Username and Password');
+      return;
+    }
     if (password !== verifyPassword) {
       alert('Password does not match. Please try again!!!');
       return;
