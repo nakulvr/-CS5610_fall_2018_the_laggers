@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {MovieServiceClient} from '../Services/MoviesServices';
+import {Component, OnInit} from '@angular/core';
+import {TVServiceClient} from '../Services/TVServices';
 
 @Component({
   selector: 'app-home',
@@ -8,15 +8,18 @@ import {MovieServiceClient} from '../Services/MoviesServices';
 })
 export class HomeComponent implements OnInit {
 
-  movies = [];
-  constructor(private movieService: MovieServiceClient) {
+  constructor(private tvService: TVServiceClient) {
 
   }
 
-  ngOnInit() {
-    this.movieService.findAllMovies()
-      .then(movies => console.log(movies));
+  tvshows = [];
 
+  ngOnInit() {
+    this.tvService.findAllMovies()
+      .then(movies => {
+        this.tvshows = movies.results;
+        // console.log(this.tvshows);
+      });
     // console.log(this.movies);
   }
 

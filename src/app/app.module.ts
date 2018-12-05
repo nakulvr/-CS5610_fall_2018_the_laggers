@@ -9,7 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import {routing} from './app.routing';
 import {FormsModule} from '@angular/forms';
-import {MovieServiceClient} from './Services/MoviesServices';
+import {TVServiceClient} from './Services/TVServices';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import {MovieServiceClient} from './Services/MoviesServices';
     routing,
     FormsModule,
   ],
-  providers: [MovieServiceClient],
+  providers: [TVServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
