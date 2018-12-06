@@ -22,6 +22,16 @@
   </div>
 
   <div>
+    <label for="password" class="fields">Password</label>
+    <input [(ngModel)]="password" placeholder="password" id="password" type="password" class="form-control" required/>
+  </div>
+
+  <div>
+    <label for="verifyPassword" class="fields">VerifyPassword</label>
+    <input [(ngModel)]="verifyPassword" placeholder="verify password" id="verifyPassword" type="password" class="form-control"required/>
+  </div>
+
+  <div>
     <label for="email" class="fields">Email</label>
     <input [(ngModel)]="email" placeholder="email@abc.com" id="email" class="form-control form-control-lg" required/>
   </div>

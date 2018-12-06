@@ -70,10 +70,11 @@ export class UserServiceClient {
     return {
       username: 'hari',
       password: '123',
-      Firstname: 'hari',
-      lastname: 'siva',
-      email: 'a@a.com'
-    }
+      firstName: 'hari',
+      lastName: 'siva',
+      email: 'a@a.com',
+      password: '123'
+    };
       // return fetch('url',
       // {
       //   credentials: 'include',
