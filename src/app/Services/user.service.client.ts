@@ -93,4 +93,8 @@ export class UserServiceClient {
     //   }
     // });
   }
+
+  logout() {
+    console.log('arrived at logout method');
+  }
 }

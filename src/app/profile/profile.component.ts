@@ -35,6 +35,10 @@ export class ProfileComponent implements OnInit {
       alert('Password does not match. Please update once again!!!');
   }
 
+  logout() {
+    this.userservice.logout();
+  }
+
   setUser(user) {
     this.user = user;
     this._id = user._id;
