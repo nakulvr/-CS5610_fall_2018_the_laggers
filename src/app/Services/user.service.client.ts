@@ -82,6 +82,15 @@ export class UserServiceClient {
       // .then(response => response.json());
   }
 
-
-
+  updateUser(user) {
+    return user;
+    // return fetch('url', {
+    //   method: 'PUT',
+    //   body: JSON.stringify(user),
+    //   credentials: 'include', // include, same-origin, *omit
+    //   headers: {
+    //     'content-type': 'application/json'
+    //   }
+    // });
+  }
 }

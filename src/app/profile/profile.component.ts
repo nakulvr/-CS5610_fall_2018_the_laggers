@@ -21,6 +21,20 @@ export class ProfileComponent implements OnInit {
     this.userservice = service;
   }
 
+  update() {
+    if(this.password === this.verifyPassword) {
+      this.user.username = this.username;
+      this.user.firstName = this.firstName;
+      this.user.lastName = this.lastName;
+      this.user.email = this.email;
+      this.user.password = this.password;
+      const res = this.service.updateUser(this.user);
+      console.log(res);
+    }
+    else
+      alert('Password does not match. Please update once again!!!');
+  }
+
   setUser(user) {
     this.user = user;
     this._id = user._id;
