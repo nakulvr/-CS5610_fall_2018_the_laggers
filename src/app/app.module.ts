@@ -14,6 +14,7 @@ import { NewtvComponent } from './newtv/newtv.component';
 import { DiscoverComponent } from './discover/discover.component';
 import { UsersComponent } from './users/users.component';
 import { FeedComponent } from './feed/feed.component';
+import { MoviesComponent } from './movies/movies.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FeedComponent } from './feed/feed.component';
     NewtvComponent,
     DiscoverComponent,
     UsersComponent,
-    FeedComponent
+    FeedComponent,
+    MoviesComponent
   ],
   imports: [
     BrowserModule,
