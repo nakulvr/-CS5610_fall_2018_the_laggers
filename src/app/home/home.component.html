@@ -6,7 +6,7 @@
         <div class="card-body">
           <h4 class="card-title">{{tvshow.name}}</h4>
           <h5>Air Date: {{tvshow.first_air_date}} Votes: {{tvshow.vote_count}} </h5>
-          <a href="#" class="btn btn-primary">Review</a>
+          <a routerLink="/movies/{{tvshow.id}}" class="btn btn-primary">Review</a>
         </div>
       </div>
     </div>
