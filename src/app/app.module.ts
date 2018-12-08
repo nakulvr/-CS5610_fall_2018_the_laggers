@@ -9,6 +9,12 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import {routing} from './app.routing';
 import {FormsModule} from '@angular/forms';
+import {TVServiceClient} from './Services/TVServices';
+import { NewtvComponent } from './newtv/newtv.component';
+import { DiscoverComponent } from './discover/discover.component';
+import { UsersComponent } from './users/users.component';
+import { FeedComponent } from './feed/feed.component';
+import { MoviesComponent } from './movies/movies.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +22,12 @@ import {FormsModule} from '@angular/forms';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    NewtvComponent,
+    DiscoverComponent,
+    UsersComponent,
+    FeedComponent,
+    MoviesComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +35,7 @@ import {FormsModule} from '@angular/forms';
     routing,
     FormsModule,
   ],
-  providers: [],
+  providers: [TVServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

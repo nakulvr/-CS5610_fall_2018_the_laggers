@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Params} from '@angular/router';
+import {TVServiceClient} from '../Services/TVServices';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+              private tvService: TVServiceClient) {
+
+  }
+
+  tvshows = [];
 
   ngOnInit() {
+    this.tvService.findAllMovies()
+      .then(movies => {
+        this.tvshows = movies.results;
+        // console.log(this.tvshows);
+      });
+    // console.log(this.movies);
   }
+
 
 }

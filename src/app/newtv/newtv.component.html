@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="row">
+    <div *ngFor="let newtvShows of newtvShows" class="col-sm-3">
+      <div class="card">
+        <img class="card-img-top" src="https://image.tmdb.org/t/p/w300{{newtvShows.poster_path}}" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title">{{newtvShows.name}}</h4>
+          <h5>Air Date: {{newtvShows.first_air_date}} Votes: {{newtvShows.vote_count}} </h5>
+          <a href="#" class="btn btn-primary">Review</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
