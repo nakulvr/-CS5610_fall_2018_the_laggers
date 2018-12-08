@@ -13,7 +13,6 @@ export class LoginComponent implements OnInit {
   password = '' ;
   service;
   curr_user;
-  router;
 
   constructor(private userservice: UserServiceClient, private router: Router) {
     this.service = userservice;
