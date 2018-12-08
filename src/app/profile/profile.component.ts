@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
       this.user.lastName = this.lastName;
       this.user.email = this.email;
       this.user.password = this.password;
-      const res = this.service.updateUser(this.user);
+      const res = this.userservice.updateUser(this.user);
       console.log(res);
     }
     else
@@ -37,6 +37,7 @@ export class ProfileComponent implements OnInit {
 
   logout() {
     this.userservice.logout();
+    this.router.navigate(['login']);
   }
 
   setUser(user) {
@@ -51,8 +52,20 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    let response = this.userservice.profile();
-    this.setUser(response);
+    console.log('loading profile');
+    //console.log(this.userservice.getUser());
+    // this.userservice.getUser().then(response => {
+    //   console.log(response);
+    // });
+    // console.log('------');
+    // console.log(response);
+    // this.setUser(response);
+    // this.userservice.getUser().then(user => {console.log('inside final');
+    //   console.log(user);
+    //   console.log(user[0]);
+    // })
+    this.userservice.findUserByUsername('testing1').then(user =>{
+      user = user[0];
+      this.setUser(user)});
   }
-
 }
