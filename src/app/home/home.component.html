@@ -11,4 +11,24 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-3">&nbsp;</div>
+    <div class="col-md-3">&nbsp;</div>
+    <nav aria-label="...">
+      <ul class="pagination">
+        <li class="page-item">
+          <!--// TODO add page num here-->
+          <a class="page-link"  tabindex="-1">Previous</a>
+        </li>
+        <!--TODO Pagination for number of results-->
+        <li *ngFor="let pageNum of [1,2,3,4]" [ngClass]="{'active': currentPageNum == pageNum}" class="page-item">
+          <a class="page-link"  (click)="paginate(pageNum)">{{pageNum}}</a>
+        </li>
+        <li class="page-item">
+          <!--// TODO add page num here-->
+          <a class="page-link">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </div>
