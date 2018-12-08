@@ -21,6 +21,11 @@ export class TVServiceClient {
     return fetch('https://api.themoviedb.org/3/discover/movie?api_key=2a755cc702db2b978534603b24da9899')
       .then(response => response.json());
   }
+
+  findSeriesById(tvshowId) {
+    return fetch('https://api.themoviedb.org/3/tv/' + tvshowId + '?api_key=2a755cc702db2b978534603b24da9899&language=en-US')
+      .then(response => response.json());
+  }
 }
 
 

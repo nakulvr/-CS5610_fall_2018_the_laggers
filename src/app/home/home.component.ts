@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Params} from '@angular/router';
 import {TVServiceClient} from '../Services/TVServices';
 
 @Component({
@@ -8,7 +9,8 @@ import {TVServiceClient} from '../Services/TVServices';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private tvService: TVServiceClient) {
+  constructor(private route: ActivatedRoute,
+              private tvService: TVServiceClient) {
 
   }
 

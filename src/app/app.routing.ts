@@ -20,7 +20,8 @@ const appRoutes: Routes = [
   {path: 'users', component: UsersComponent},
   {path: 'feed', component: FeedComponent},
   {path: 'movies', component: MoviesComponent},
-  {path: '**', component: HomeComponent},
-];
+  {path: 'movies/:tvshowId', component: MoviesComponent},
+  {path: '**', component: HomeComponent}
+  ];
 
 export const routing = RouterModule.forRoot(appRoutes);
