@@ -17,6 +17,7 @@ import { DiscoverComponent } from './discover/discover.component';
 import { UsersComponent } from './users/users.component';
 import { FeedComponent } from './feed/feed.component';
 import { MoviesComponent } from './movies/movies.component';
+import { UserCommentsComponent } from './user-comments/user-comments.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MoviesComponent } from './movies/movies.component';
     DiscoverComponent,
     UsersComponent,
     FeedComponent,
-    MoviesComponent
+    MoviesComponent,
+    UserCommentsComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import {DiscoverComponent} from './discover/discover.component';
 import {UsersComponent} from './users/users.component';
 import {FeedComponent} from './feed/feed.component';
 import {MoviesComponent} from './movies/movies.component';
+import { UserCommentsComponent } from './user-comments/user-comments.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
   {path: 'users', component: UsersComponent},
   {path: 'feed', component: FeedComponent},
   {path: 'movies', component: MoviesComponent},
+  {path: 'userComments', component: UserCommentsComponent },
   {path: 'movies/:tvshowId', component: MoviesComponent},
   {path: '**', component: HomeComponent}
   ];

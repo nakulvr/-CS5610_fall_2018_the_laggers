@@ -25,4 +25,8 @@ export class CommentsService {
       return fetch('https://tele-connect-server.herokuapp.com/api/tvseries/' + tvseriesId + '/comment')
       .then(response => response.json());
   }
+
+  getMyComments(userId: String) {
+    return fetch('https://tele-connect-server.herokuapp.com/api/user/' + userId + '/comment').then(response => response.json());
+  }
 }
