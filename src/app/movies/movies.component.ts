@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { TVServiceClient } from '../services/TVServices';
 import { CommentsService } from '../services/comments.service';
+import {FollowService} from '../Services/follow.client.service';
+import {FavouriteService} from '../Services/favourite.service.client';
 
 @Component({
   selector: 'app-movies',
@@ -18,8 +20,8 @@ export class MoviesComponent implements OnInit {
   tvShowImage = '';
   commentsForSeries = [];
   comment = '';
-
-  constructor(private route: ActivatedRoute,
+  user;
+  constructor(private route: ActivatedRoute, private favouriteService: FavouriteService,
     private commentsService: CommentsService,
     private tvService: TVServiceClient) {
     this.route.params.subscribe(params => this.setParams(params.tvshowId));
@@ -37,10 +39,19 @@ export class MoviesComponent implements OnInit {
       });
   }
 
+  follow(){
+    if(localStorage.length === 0){
+      alert("Please Login/ Register to follow");
+      return;
+    }
+    this.favouriteService.setMyFavouriteMovies(this.tvshowId, this.user.id).then();
+  }
   postComment() {
-
-    const user = JSON.parse(localStorage.getItem("user"));
-    this.commentsService.postCommentForTVSeries(user.id, this.tvshowId, this.comment)
+    if(localStorage.length === 0){
+      alert("Please Login/ Register to comment");
+      return;
+    }
+    this.commentsService.postCommentForTVSeries(this.user.id, this.tvshowId, this.comment)
       .then(res => {
         this.commentsForSeries = res;
       });
@@ -59,6 +70,7 @@ export class MoviesComponent implements OnInit {
 
   ngOnInit() {
     this.getCommentsForMovie();
+    this.user = JSON.parse(localStorage.getItem("user"));
   }
 
 }

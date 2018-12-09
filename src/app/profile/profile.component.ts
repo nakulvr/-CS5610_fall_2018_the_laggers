@@ -81,11 +81,11 @@ export class ProfileComponent implements OnInit {
         this.tvshows = response[0].tvseries;
         console.log(this.tvshows);
       });
-      this.followers = this.followService.getFollowers(user.id);
+      this.followers = this.followService.getFollowers(user._id);
       //   .then(response => {
       //   this.followers = response;
       // });
-      this.following_users = this.followService.getFollowing(user.id);
+      this.following_users = this.followService.getFollowing(user._id);
       //   .then(response => {
       //   this.following_users = response;
       // });

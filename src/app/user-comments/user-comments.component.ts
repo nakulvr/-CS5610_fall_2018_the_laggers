@@ -13,7 +13,7 @@ export class UserCommentsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private commentsService: CommentsService) {
     //const user = JSON.parse(localStorage.getItem("user"));
     this.route.params.subscribe(params => this.setParams(params.uid));
-    this.myComments = commentsService.getMyComments(this.userId).then(res => {
+    commentsService.getMyComments(this.userId).then(res => {
       this.myComments = res;
     });
   }
