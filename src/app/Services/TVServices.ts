@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class TVServiceClient {
- 
-  static findAllMovies(settings) {
+
+  findAllMovies(settings) {
     let defaultSettings = {
       'url': 'https://api.themoviedb.org/3/tv/popular',
       'api_key': '2a755cc702db2b978534603b24da9899',
@@ -14,19 +14,19 @@ export class TVServiceClient {
       .then(response => response.json());
   }
 
-  static findNewShows() {
+  findNewShows() {
     // return;
     // fetch( 'https://api.themoviedb.org/3/discover/movie?api_key=2a755cc702db2b978534603b24da9899')
     return fetch('https://api.themoviedb.org/3/trending/all/day?api_key=2a755cc702db2b978534603b24da9899')
       .then(response => response.json());
   }
 
-  static findGenre() {
+  findGenre() {
     return fetch('https://api.themoviedb.org/3/discover/movie?api_key=2a755cc702db2b978534603b24da9899')
       .then(response => response.json());
   }
 
-  static findSeriesById(tvShowId) {
+  findSeriesById(tvShowId) {
     return fetch('https://api.themoviedb.org/3/tv/' + tvShowId + '?api_key=2a755cc702db2b978534603b24da9899&language=en-US')
       .then(response => response.json());
   }
