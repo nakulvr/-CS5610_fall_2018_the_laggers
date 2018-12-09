@@ -9,7 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import {routing} from './app.routing';
 import {FormsModule} from '@angular/forms';
-import {TVServiceClient} from './Services/TVServices';
+import {TVServiceClient} from './services/TVServices';
 import {UserServiceClient} from './services/user.service.client';
 
 import { NewtvComponent } from './newtv/newtv.component';

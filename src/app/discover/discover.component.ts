@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {TVServiceClient} from '../Services/TVServices';
+import {TVServiceClient} from '../services/TVServices';
 
 @Component({
   selector: 'app-discover',

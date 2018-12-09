@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
-import {TVServiceClient} from '../Services/TVServices';
+import {TVServiceClient} from '../services/TVServices';
 
 @Component({
   selector: 'app-home',
