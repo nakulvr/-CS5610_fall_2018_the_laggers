@@ -43,6 +43,10 @@
   </div>
 </div>
 <hr>
+<h1>Comments</h1>
+<hr>
+<h5><a routerLink="/userComments">See all my comments</a></h5>
+<hr>
 <h1>Favourite Movies</h1>
 <hr>
 <div class="container-fluid">
@@ -62,13 +66,38 @@
 <hr>
 <h1>Followers</h1>
 <hr>
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title text-center">ABC</h5>
-    <p class="card-text">Som make up the bulk of the card's content.</p>
+<div class="container-fluid">
+  <div class="row">
+    <div *ngFor="let follower of followers" class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">
+            <a routerLink="/profile/{{follower._id}}">{{follower.username}}</a>
+          </h4>
+          <h5>Votes: {{follower.email}} </h5>
+          <button (click)="removeFollower(follower._id)" class="btn btn-red"> Remove </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<div>
-  <a routerLink="/userComments"> see my comments </a>
+<hr>
+<h1>Followers</h1>
+<hr>
+<div class="container-fluid">
+  <div class="row">
+    <div *ngFor="let following of following_users" class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">
+            <a routerLink="/profile/{{following._id}}">{{following.username}}</a>
+          </h4>
+          <h5>Votes: {{following.email}} </h5>
+          <button (click)="removeFollowing(following._id)" class="btn btn-red"> Remove </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <hr>
+

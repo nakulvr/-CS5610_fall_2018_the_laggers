@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserServiceClient} from '../services/user.service.client';
+import {FollowService} from '../services/follow.client.service';
 import {Router} from '@angular/router';
 @Component({
   selector: 'app-profile',
@@ -17,8 +18,11 @@ export class ProfileComponent implements OnInit {
   verifyPassword;
   userservice;
   tvshows;
+  followers;
+  following_users;
 
-  constructor(private service: UserServiceClient, private router: Router, private favouriteService: FavouriteService) {
+  constructor(private service: UserServiceClient, private router: Router, private favouriteService: FavouriteService,
+              private followService: FollowService) {
     this.userservice = service;
   }
 
@@ -56,6 +60,18 @@ export class ProfileComponent implements OnInit {
     this.verifyPassword = user.password;
   }
 
+  removeFollower(followerId) {
+    this.followService.deleteFollowers().then(response=>{
+      this.followers = response;
+    });
+  }
+
+  removeFollowing(followingId){
+    this.followService.deleteFollowing().then(response =>{
+      this.following_users = response;
+    });
+  }
+
   ngOnInit() {
     const name = JSON.parse(localStorage.getItem('user')).name
     this.service.findUserByUsername(name).then(user =>{
@@ -64,7 +80,15 @@ export class ProfileComponent implements OnInit {
       this.favouriteService.getMyFavouriteMovies(user._id).then(response => {
         this.tvshows = response[0].tvseries;
         console.log(this.tvshows);
-      })
+      });
+      this.followers = this.followService.getFollowers()
+      //   .then(response => {
+      //   this.followers = response;
+      // });
+      this.following_users = this.followService.getFollowing()
+      //   .then(response => {
+      //   this.following_users = response;
+      // });
     });
   }
 }
