@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
-import {TVServiceClient} from '../Services/TVServices';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { TVServiceClient } from '../Services/TVServices';
+import { CommentsService } from '../Services/comments.service';
 
 @Component({
   selector: 'app-movies',
@@ -15,9 +16,11 @@ export class MoviesComponent implements OnInit {
   episodeCount = 0;
   seasonCount = 0;
   tvShowImage = '';
+  commentsForSeries = [];
 
   constructor(private route: ActivatedRoute,
-              private tvService: TVServiceClient) {
+    private commentsService: CommentsService,
+    private tvService: TVServiceClient) {
     this.route.params.subscribe(params => this.setParams(params.tvshowId));
   }
 
@@ -35,7 +38,23 @@ export class MoviesComponent implements OnInit {
     // console.log(this.tvshowId);
   }
 
+  postComment() {
+
+  }
+
+  getCommentsForMovie() {
+    this.commentsService.getCommentsForTVSeries(this.tvshowId)
+      .then(comments => {
+        console.log("comments: " + comments);
+        comments.forEach(comment => {
+          this.commentsForSeries.push(comment);
+          console.log(comment);
+        });
+      });;
+  }
+
   ngOnInit() {
+    this.getCommentsForMovie();
   }
 
 }

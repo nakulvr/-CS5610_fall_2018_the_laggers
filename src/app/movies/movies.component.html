@@ -1,61 +1,71 @@
 <div class="container-fluid">
-<h1 class="text-center">{{tvShowName}}</h1>
-<hr>
-<img src="https://image.tmdb.org/t/p/w780/{{tvShowImage}}" class="img-fluid" alt="Responsive image">
-<hr>
-<p>
-  {{tvShowDetails}}
-</p>
+  <h1 class="text-center">{{tvShowName}}</h1>
+  <hr>
+  <img src="https://image.tmdb.org/t/p/w780/{{tvShowImage}}" class="img-fluid" alt="Responsive image">
+  <hr>
+  <p>
+    {{tvShowDetails}}
+  </p>
 
-<hr>
-<button class="btn btn-danger">
-  Follow
-</button>
+  <hr>
+  <button class="btn btn-danger">
+    Follow
+  </button>
 
-<hr>
-<h3>TV Series Details</h3>
-<table>
-  <tr>
-    <td class="">
-      <h5>Name : </h5>
-    </td>
-    <td>
-      <h5>{{tvShowName}}</h5>
-    </td>
-  </tr>
-</table>
-<hr>
-
-<div>
+  <hr>
+  <h3>TV Series Details</h3>
   <table>
     <tr>
-      <td>
-        <h3> Private | </h3>
+      <td class="">
+        <h5>Name : </h5>
       </td>
       <td>
-        <h3>User 1 : </h3>
+        <h5>{{tvShowName}}</h5>
       </td>
-      <td>
-        <h6>
-          The Marvel Cinematic Universe became the first film franchise to gross more than $14 billion with the release of Black Panther
-        </h6>
-      </td>
-
     </tr>
-
-
   </table>
-</div>
+  <hr>
 
-<hr>
-<div class="form-group">
-  <label for="comment">Comment:</label>
-  <textarea class="form-control col-4" rows="2" id="comment"></textarea>
-</div>
-<button class="btn btn-primary">
-  Comment
-</button>
+  <div>
+    <table>
+      <tr>
+        <td>
+          <h3> Private | </h3>
+        </td>
+        <td>
+          <h3>User 1 : </h3>
+        </td>
+        <td>
+          <h6>
+            The Marvel Cinematic Universe became the first film franchise to gross more than $14 billion with the
+            release of Black Panther
+          </h6>
+        </td>
 
-<hr>
-</div>
+      </tr>
 
+
+    </table>
+  </div>
+
+  <hr>
+  <div class="form-group">
+    <label for="comment">Comment:</label>
+    <div class="row" *ngFor="let comment of commentsForSeries">
+      <div class="col-md-2"><a href="#">
+          {{comment.user.username}}
+        </a></div>
+      <div class="col-md-10">
+        {{comment.comment}}
+        <hr>
+      </div>
+    </div>
+
+    <textarea class="form-control col-4" rows="2" id="comment"></textarea>
+  </div>
+  <button (click)="postComment()" class="btn btn-primary">
+    Comment
+  </button>
+
+  <hr>
+</div>
