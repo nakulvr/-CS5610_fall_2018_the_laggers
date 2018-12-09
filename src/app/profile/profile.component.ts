@@ -56,7 +56,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    const name = JSON.parse(localStorage.getItem('name')).name
+    const name = JSON.parse(localStorage.getItem('user')).name
     this.service.findUserByUsername(name).then(user =>{
         user = user[0];
         this.setUser(user);

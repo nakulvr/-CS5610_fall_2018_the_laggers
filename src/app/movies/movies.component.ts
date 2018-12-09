@@ -17,6 +17,7 @@ export class MoviesComponent implements OnInit {
   seasonCount = 0;
   tvShowImage = '';
   commentsForSeries = [];
+  comment='';
 
   constructor(private route: ActivatedRoute,
     private commentsService: CommentsService,
@@ -33,13 +34,16 @@ export class MoviesComponent implements OnInit {
         this.tvShowName = result['name'];
         this.tvShowDetails = result['overview'];
         this.tvShowImage = result['backdrop_path'];
-        // this.episodeCount =
       });
-    // console.log(this.tvshowId);
   }
 
   postComment() {
 
+    const user = JSON.parse(localStorage.getItem("user"));
+    this.commentsService.postCommentForTVSeries(user.id, this.tvshowId, this.comment)
+      .then(res => {
+        this.commentsForSeries = res;
+      });
   }
 
   getCommentsForMovie() {

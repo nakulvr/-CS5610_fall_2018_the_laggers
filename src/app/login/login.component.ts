@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     this.password = password;
     this.service.login(username, password).then(user => {
       if (user !== null) {
-        localStorage.setItem("name",JSON.stringify({name: user[0].username}))
+        localStorage.setItem("user",JSON.stringify({name: user[0].username, id: user[0]._id}))
         this.router.navigate(['home']);
         location.reload();
       }

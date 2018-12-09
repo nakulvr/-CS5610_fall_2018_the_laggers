@@ -22,7 +22,7 @@ export class CommentsService {
   }
 
   getCommentsForTVSeries(tvseriesId: string) {
-    return fetch('https://tele-connect-server.herokuapp.com/api/tvseries/' + tvseriesId + '/comment')
+      return fetch('https://tele-connect-server.herokuapp.com/api/tvseries/' + tvseriesId + '/comment')
       .then(response => response.json());
   }
 }
