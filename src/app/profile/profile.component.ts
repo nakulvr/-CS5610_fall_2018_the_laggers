@@ -22,22 +22,26 @@ export class ProfileComponent implements OnInit {
   }
 
   update() {
-    if(this.password === this.verifyPassword) {
+    if (this.password === this.verifyPassword) {
       this.user.username = this.username;
       this.user.firstName = this.firstName;
       this.user.lastName = this.lastName;
       this.user.email = this.email;
       this.user.password = this.password;
-      const res = this.userservice.updateUser(this.user);
-      console.log(res);
+      this.userservice.updateUser(this.user).then(user => {
+        if (user !== null) {
+          alert('User Details has been updated successfully');
+        }
+      });
     }
     else
       alert('Password does not match. Please update once again!!!');
   }
 
   logout() {
-    this.userservice.logout();
+    localStorage.clear();
     this.router.navigate(['login']);
+    location.reload();
   }
 
   setUser(user) {
@@ -52,20 +56,10 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('loading profile');
-    //console.log(this.userservice.getUser());
-    // this.userservice.getUser().then(response => {
-    //   console.log(response);
-    // });
-    // console.log('------');
-    // console.log(response);
-    // this.setUser(response);
-    // this.userservice.getUser().then(user => {console.log('inside final');
-    //   console.log(user);
-    //   console.log(user[0]);
-    // })
-    this.userservice.findUserByUsername('testing1').then(user =>{
-      user = user[0];
-      this.setUser(user)});
+    const name = JSON.parse(localStorage.getItem('name')).name
+    this.service.findUserByUsername(name).then(user =>{
+        user = user[0];
+        this.setUser(user);
+    });
   }
 }

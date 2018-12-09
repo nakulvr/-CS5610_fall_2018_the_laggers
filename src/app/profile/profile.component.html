@@ -8,7 +8,7 @@
 
   <div>
     <label for="name" class="fields">Username</label>
-    <input [(ngModel)]="username" placeholder="Username" id="name"  class="form-control form-control-lg"required/>
+    <input [(ngModel)]="username" placeholder="Username" id="name"  class="form-control form-control-lg" readonly required/>
   </div>
 
   <div>
@@ -45,10 +45,18 @@
 <hr>
 <h1>Favourite Movies</h1>
 <hr>
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title text-center">ABC</h5>
-    <p class="card-text">Som make up the bulk of the card's content.</p>
+<div class="container-fluid">
+  <div class="row">
+    <div *ngFor="let tvshow of tvshows" class="col-sm-3">
+      <div class="card">
+        <img class="card-img-top" src="https://image.tmdb.org/t/p/w300{{tvshow.poster_path}}" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title">{{tvshow.name}}</h4>
+          <h5>Air Date: {{tvshow.first_air_date}} Votes: {{tvshow.vote_count}} </h5>
+          <a routerLink="/movies/{{tvshow.id}}" class="btn btn-primary">Review</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <hr>

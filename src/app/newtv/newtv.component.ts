@@ -21,7 +21,6 @@ export class NewtvComponent implements OnInit {
       .then(shows => {
         this.newtvShows = shows.results;
       });
-    // console.log(this.movies);
   }
 
 

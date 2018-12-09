@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
   }
 
   listTrendingMovies(settings){
-    TVServiceClient.findAllMovies(settings)
+    this.tvService.findAllMovies(settings)
       .then(movies => {
         this.tvshows = movies.results;
         // console.log(this.tvshows);

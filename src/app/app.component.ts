@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'tele-connect';
   username = 'test';
+  private strlen = localStorage.length;
+  constructor(){
+  }
+
 }

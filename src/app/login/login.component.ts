@@ -22,26 +22,19 @@ export class LoginComponent implements OnInit {
   login(username, password) {
     this.username = username;
     this.password = password;
-    this.service.login(username, password).then(user =>{
-      console.log("after output");
-      console.log(user);
+    this.service.login(username, password).then(user => {
       if (user !== null) {
-        this.service.setUser(user);
+        localStorage.setItem("name",JSON.stringify({name: user[0].username}))
         this.router.navigate(['home']);
+        location.reload();
       }
       else{
         alert('Invalid User Credentials. Please try again or Register yourself!!!');
       }
     });
-    // this.loginValidation(res);
-    // this.service.login(username, password)
-    //   .then(user => this.curr_user = user)
-    //   .then(() => this.loginValidation(this.curr_user));
   }
 
   loginValidation(user) {
-    console.log("after output");
-    console.log(user);
     if (user !== null) {
       this.router.navigate(['home']);
     }
