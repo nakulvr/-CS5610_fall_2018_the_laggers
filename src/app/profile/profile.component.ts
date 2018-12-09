@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserServiceClient} from '../services/user.service.client';
 import {Router} from '@angular/router';
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -17,7 +16,9 @@ export class ProfileComponent implements OnInit {
   password;
   verifyPassword;
   userservice;
-  constructor(private service: UserServiceClient, private router: Router) {
+  tvshows;
+
+  constructor(private service: UserServiceClient, private router: Router, private favouriteService: FavouriteService) {
     this.userservice = service;
   }
 
@@ -58,8 +59,14 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     const name = JSON.parse(localStorage.getItem('user')).name
     this.service.findUserByUsername(name).then(user =>{
-        user = user[0];
-        this.setUser(user);
+      user = user[0];
+      this.setUser(user);
+      this.favouriteService.getMyFavouriteMovies(user._id).then(response => {
+        this.tvshows = response[0].tvseries;
+        console.log(this.tvshows);
+      })
     });
   }
 }
+
+import {FavouriteService} from '../Services/favourite.service.client';

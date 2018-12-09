@@ -49,11 +49,11 @@
   <div class="row">
     <div *ngFor="let tvshow of tvshows" class="col-sm-3">
       <div class="card">
-        <img class="card-img-top" src="https://image.tmdb.org/t/p/w300{{tvshow.poster_path}}" alt="Card image cap">
         <div class="card-body">
-          <h4 class="card-title">{{tvshow.name}}</h4>
-          <h5>Air Date: {{tvshow.first_air_date}} Votes: {{tvshow.vote_count}} </h5>
-          <a routerLink="/movies/{{tvshow.id}}" class="btn btn-primary">Review</a>
+          <h4 class="card-title">
+            <a routerLink="/movies/{{tvshow._id}}">{{tvshow.name}}</a>
+          </h4>
+          <h5>Votes: {{tvshow.vote_average}} </h5>
         </div>
       </div>
     </div>
