@@ -7,35 +7,35 @@ export class FollowService {
   constructor() {
   }
 
-  getFollowers(){
+  getFollowers(userId) {
     return [{
         "_id": "5c0a60681375f70016056138",
         "username": "testing2",
         "email": "testing2@gmail.com"
-    }]
+    }];
   }
 
-  getFollowing(){
+  getFollowing(userId) {
     return [{
       "_id": "5c0a82f2cc9c94001620122c",
       "username": "testing3",
       "email": "testing3@gmail.com"
-    }]
+    }];
   }
 
-  addFollowers(){
+  addFollowers(userId, followerId){
     return []; // return success msg -> should be used in user profile page
   }
 
-  addFollowing(){
+  addFollowing(userId, followingId) {
     return []; // return success msg -> should be used in user profile page
   }
 
-  deleteFollowers(){
+  deleteFollowers(userId, followerId){
     return []; // return new followers array -> should be used in my profile view page
   }
 
-  deleteFollowing(){
+  deleteFollowing(userId, followingId) {
     return []; // return new array => should be used in my profile view page
   }
 

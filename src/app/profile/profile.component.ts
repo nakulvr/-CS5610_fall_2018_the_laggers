@@ -73,19 +73,19 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    const name = JSON.parse(localStorage.getItem('user')).name
-    this.service.findUserByUsername(name).then(user =>{
+    const name = JSON.parse(localStorage.getItem('user')).name;
+    this.service.findUserByUsername(name).then(user => {
       user = user[0];
       this.setUser(user);
       this.favouriteService.getMyFavouriteMovies(user._id).then(response => {
         this.tvshows = response[0].tvseries;
         console.log(this.tvshows);
       });
-      this.followers = this.followService.getFollowers()
+      this.followers = this.followService.getFollowers(user.id);
       //   .then(response => {
       //   this.followers = response;
       // });
-      this.following_users = this.followService.getFollowing()
+      this.following_users = this.followService.getFollowing(user.id);
       //   .then(response => {
       //   this.following_users = response;
       // });

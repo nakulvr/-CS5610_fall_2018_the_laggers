@@ -1,3 +1,6 @@
+import {Injectable} from '@angular/core';
+
+@Injectable()
 export class UserServiceClient {
   // let URL = 'https://tele-connect-server.herokuapp.com/';
   login(username, password) {
@@ -14,11 +17,15 @@ export class UserServiceClient {
     }).then(response => response.json());
   }
 
-  setUser(user) {
-    return fetch('http://localhost:3000/api/session/set/curr_user/' + user.username).then(console.log);
+  // setUser(user) {
+  //   return fetch('http://localhost:3000/api/session/set/curr_user/' + user.username).then(console.log);
+  // }
+
+  findUserByUserId(userId) {
+    return fetch('https://tele-connect-server.herokuapp.com/api/user/' + userId).then(response => response.json());
   }
 
-  getUser = () => fetch('http://localhost:3000/api/session/get/curr_user').then(res => res.json());
+  // getUser = () => fetch('http://localhost:3000/api/session/get/curr_user').then(res => res.json());
 
   findUserByUsername(username) {
     const credentials = {

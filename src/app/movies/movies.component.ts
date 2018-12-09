@@ -17,7 +17,7 @@ export class MoviesComponent implements OnInit {
   seasonCount = 0;
   tvShowImage = '';
   commentsForSeries = [];
-  comment='';
+  comment = '';
 
   constructor(private route: ActivatedRoute,
     private commentsService: CommentsService,

@@ -52,7 +52,7 @@
   <div class="form-group">
     <label for="comment">Comment:</label>
     <div class="row" *ngFor="let comment of commentsForSeries">
-      <div class="col-md-2"><a href="#">
+      <div class="col-md-2"><a href="/profile/{{comment.user._id}}">
           {{comment.user.username}}
         </a></div>
       <div class="col-md-10">

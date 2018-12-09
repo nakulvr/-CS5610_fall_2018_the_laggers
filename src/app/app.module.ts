@@ -18,6 +18,7 @@ import { UsersComponent } from './users/users.component';
 import { FeedComponent } from './feed/feed.component';
 import { MoviesComponent } from './movies/movies.component';
 import { UserCommentsComponent } from './user-comments/user-comments.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { UserCommentsComponent } from './user-comments/user-comments.component';
     UsersComponent,
     FeedComponent,
     MoviesComponent,
-    UserCommentsComponent
+    UserCommentsComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
