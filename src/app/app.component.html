@@ -2,15 +2,19 @@
   <h1 class="container-fluid text-center">Tele Connect</h1>
   <hr>
   <div class="col-lg-12">
-    <a routerLink="/home">Home</a> |
-    <a routerLink="/login">Login</a> |
-    <a routerLink="/profile">Profile</a> |
-    <a routerLink="/register">Register</a> |
-    <a routerLink="/discover">Different Genere</a> |
-    <a routerLink="/newShows">Trending Movies</a> |
-    <a routerLink="/users">Active Users</a> |
-    <a routerLink="/feed">News Feeds</a> |
-    <a routerLink="/movies">Movies</a>
+    <a routerLink="/home">Home |</a>
+    <a *ngIf="strlen===0" routerLink="/login"> Login |</a>
+    <a *ngIf="strlen===1" routerLink="/profile"> Profile |</a>
+    <a *ngIf="strlen===0" routerLink="/register"> Register |</a>
+    <a *ngIf="isAdmin()" routerLink="/"> Manage Users |</a>
+    <a routerLink="/discover"> Different Genere |</a>
+    <a routerLink="/newShows"> Trending Movies |</a>
+    <a routerLink="/users"> Active Users |</a>
+    <a routerLink="/feed"> News Feeds |</a>
+    <a routerLink="/movies"> Movies |</a>
+    <a *ngIf="strlen===1" class="btn btn-danger float-right" (click)="logout()">
+      <i class="fa fa-sign-out" aria-hidden="true"></i>Logout
+    </a>
     </div>
   <hr>
   <div>

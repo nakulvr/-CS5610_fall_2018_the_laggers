@@ -1,18 +1,14 @@
-<h1>Login</h1>
-<hr>
-<table>
-<tbody>
-<tr>
-  <td>Username</td>
-  <td><input [(ngModel)]="username"/></td>
-</tr>
-<tr>
-  <td>Password</td>
-  <td><input [(ngModel)]="password" type="password"/></td>
-</tr>
-</tbody>
-</table>
-<hr>
-<button class="btn-primary btn">
-  Login
-</button>
+<div class="container-fluid">
+  <h1>LOGIN</h1>
+
+  <input [(ngModel)]="username" placeholder="username" class="form-control"/>
+  <input [(ngModel)]="password" placeholder="password" type="password" class="form-control"/>
+
+  <button (click)="login(username, password)" class="btn btn-lg btn-primary btn-block"> Login </button>
+
+  <a routerLink="/register" class="btn btn-lg btn-success btn-block">Register</a>
+
+</div>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+      crossorigin="anonymous">

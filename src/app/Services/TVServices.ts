@@ -3,10 +3,14 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class TVServiceClient {
 
-  findAllMovies() {
-    // return;
-    // fetch( 'https://api.themoviedb.org/3/discover/movie?api_key=2a755cc702db2b978534603b24da9899')
-    return fetch('https://api.themoviedb.org/3/tv/popular?page=1&language=en-US&api_key=2a755cc702db2b978534603b24da9899')
+  findAllMovies(settings) {
+    let defaultSettings = {
+      'url': 'https://api.themoviedb.org/3/tv/popular',
+      'api_key': '2a755cc702db2b978534603b24da9899',
+      'language': 'en-US'
+    };
+    let s = Object.assign({}, settings, defaultSettings);
+    return fetch(s.url + '?page=' + s.pageNum + '&language=' + s.language + '&api_key=' + s.api_key)
       .then(response => response.json());
   }
 
@@ -22,10 +26,8 @@ export class TVServiceClient {
       .then(response => response.json());
   }
 
-  findSeriesById(tvshowId) {
-    return fetch('https://api.themoviedb.org/3/tv/' + tvshowId + '?api_key=2a755cc702db2b978534603b24da9899&language=en-US')
+  findSeriesById(tvShowId) {
+    return fetch('https://api.themoviedb.org/3/tv/' + tvShowId + '?api_key=2a755cc702db2b978534603b24da9899&language=en-US')
       .then(response => response.json());
   }
 }
-
-

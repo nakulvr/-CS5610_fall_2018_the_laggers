@@ -1,49 +1,97 @@
-<h1>Profile</h1>
-<hr>
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title text-center">Alice</h5>
-    <table>
-      <tbody>
-      <tr>
-        <td>Username : </td>
-        <td> Aryan123</td>
-      </tr>
-      <tr>
-        <td>Firstname : </td>
-        <td> Aryan</td>
-      </tr>
-      <tr>
-        <td>Lastname : </td>
-        <td> Ahuja</td>
-      </tr>
-      <tr>
-        <td>Role : </td>
-        <td>Viewer</td>
-      </tr>
-      </tbody>
-    </table>
-    <button class="btn-success btn">
-      Update
+<div class="container">
+  <h2> Profile </h2>
+
+  <div>
+    <label for="name" class="fields">Username</label>
+    <input [(ngModel)]="username" placeholder="Username" id="name"  class="form-control form-control-lg" readonly required/>
+  </div>
+
+  <div>
+    <label for="fName" class="fields">Firstname</label>
+    <input [(ngModel)]="firstName" placeholder="First Name" id="fname" class="form-control form-control-lg" required/>
+  </div>
+
+  <div>
+    <label for="lname" class="fields">LastName</label>
+    <input [(ngModel)]="lastName" placeholder="Last Name" id="lname" class="form-control form-control-lg" required/>
+  </div>
+
+  <div>
+    <label for="password" class="fields">Password</label>
+    <input [(ngModel)]="password" placeholder="password" id="password" type="password" class="form-control form-control-lg" required/>
+  </div>
+
+  <div>
+    <label for="verifyPassword" class="fields">VerifyPassword</label>
+    <input [(ngModel)]="verifyPassword" placeholder="verify password" id="verifyPassword" type="password" class="form-control form-control-lg" required/>
+  </div>
+
+  <div>
+    <label for="email" class="fields">Email</label>
+    <input [(ngModel)]="email" placeholder="email@abc.com" id="email" class="form-control form-control-lg" required/>
+  </div>
+<br><br>
+  <div>
+    <button (click)="update()" class="btn btn-lg btn-primary btn-block">
+      <i class="fa fa-check wbdv-update"></i>Update
     </button>
   </div>
 </div>
 <hr>
+<h1>Comments</h1>
+<hr>
+<h5><a routerLink="/userComments/{{user._id}}">See all my comments</a></h5>
+<hr>
 <h1>Favourite Movies</h1>
 <hr>
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title text-center">ABC</h5>
-    <p class="card-text">Som make up the bulk of the card's content.</p>
+<div class="container-fluid">
+  <div class="row">
+    <div *ngFor="let tvshow of tvshows" class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">
+            <a routerLink="/movies/{{tvshow._id}}">{{tvshow.name}}</a>
+          </h4>
+          <h5>Votes: {{tvshow.vote_average}} </h5>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <hr>
 <h1>Followers</h1>
 <hr>
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title text-center">ABC</h5>
-    <p class="card-text">Som make up the bulk of the card's content.</p>
+<div class="container-fluid">
+  <div class="row">
+    <div *ngFor="let follower of followers" class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">
+            <a routerLink="/profile/{{follower._id}}">{{follower.username}}</a>
+          </h4>
+          <h5>Votes: {{follower.email}} </h5>
+          <button (click)="removeFollower(follower._id)" class="btn btn-red"> Remove </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<h1>Followers</h1>
+<hr>
+<div class="container-fluid">
+  <div class="row">
+    <div *ngFor="let following of following_users" class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">
+            <a routerLink="/profile/{{following._id}}">{{following.username}}</a>
+          </h4>
+          <h5>Votes: {{following.email}} </h5>
+          <button (click)="removeFollowing(following._id)" class="btn btn-red"> Remove </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <hr>

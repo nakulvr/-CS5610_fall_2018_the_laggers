@@ -1,0 +1,11 @@
+<div class="form-group">
+  <div class="row" *ngFor="let comment of commentsForSeries">
+    <div class="col-md-2"><a href="/profile/{{comment.user._id}}">
+      {{comment.user.username}}
+    </a></div>
+    <div class="col-md-10">
+      {{comment.comment}}
+      <hr>
+    </div>
+  </div>
+</div>

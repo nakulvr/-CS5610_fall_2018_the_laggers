@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
-import {TVServiceClient} from '../Services/TVServices';
+import {TVServiceClient} from '../services/TVServices';
 
 @Component({
   selector: 'app-home',
@@ -14,16 +14,28 @@ export class HomeComponent implements OnInit {
 
   }
 
-  tvshows = [];
+  private tvshows = [];
+  private currentPageNum = 1;
 
   ngOnInit() {
-    this.tvService.findAllMovies()
+    let defaultSettings = {
+      pageNum : 1
+    };
+   this.listTrendingMovies(defaultSettings);
+  }
+
+  paginate(pageNum) {
+    this.listTrendingMovies({pageNum: pageNum});
+    this.currentPageNum = pageNum;
+    console.log(pageNum);
+  }
+
+  listTrendingMovies(settings){
+    this.tvService.findAllMovies(settings)
       .then(movies => {
         this.tvshows = movies.results;
         // console.log(this.tvshows);
       });
-    // console.log(this.movies);
   }
-
 
 }

@@ -1,0 +1,21 @@
+<div class="form-group">
+  <div class="row">
+    <div class="col-md-2">
+      <h5>TV Series</h5>
+    </div>
+    <div class="col-md-10">
+      <h5>Your Comments</h5>
+    </div>
+  </div>
+  <div class="row" *ngFor="let comment of myComments">
+    <div class="col-md-2">
+      <a href="movies/{{comment.tvseries._id}}">
+      {{comment.tvseries.name}}
+      </a>
+    </div>
+    <div class="col-md-10">
+      {{comment.comment}}
+      <hr>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {TVServiceClient} from '../Services/TVServices';
+import {TVServiceClient} from '../services/TVServices';
 
 @Component({
   selector: 'app-newtv',
@@ -21,7 +21,6 @@ export class NewtvComponent implements OnInit {
       .then(shows => {
         this.newtvShows = shows.results;
       });
-    // console.log(this.movies);
   }
 
 

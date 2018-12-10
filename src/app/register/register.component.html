@@ -1,36 +1,16 @@
-<h1>Register</h1>
-<hr>
-<table>
-  <tbody>
-  <tr>
-    <td>Username : </td>
-    <td><input [(ngModel)]="username" placeholder="User Name"/></td>
-  </tr>
-  <tr>
-    <td>Firstname : </td>
-    <td><input [(ngModel)]="firstname" placeholder="First Name"/></td>
-  </tr>
-  <tr>
-    <td>Lastname : </td>
-    <td><input [(ngModel)]="lastname" placeholder="Last Name"/></td>
-  </tr>
-  <tr>
-    <td>Password : </td>
-    <td><input [(ngModel)]="password" placeholder="Password" type="password"/></td>
-  </tr>
-  <tr>
-    <td>Role : </td>
-    <td>
-      <select ng-model="myColor" ng-options="userRole">
-        <option value="">Viewer</option>
-        <option value="">Actor</option>
-        <option value="">Reviewer</option>
-      </select>
-    </td>
-  </tr>
-  </tbody>
-</table>
-<hr>
-<button class="btn-danger btn">
-  Register
-</button>
+<div class="container-fluid">
+  <h1>Register</h1>
+
+  <input [(ngModel)]="username" placeholder="username" class="form-control"/><br>
+  <input [(ngModel)]="password" placeholder="password" type="password" class="form-control"/><br>
+  <input [(ngModel)]="verifyPassword" placeholder="verify password" type="password" class="form-control"/><br>
+  <button (click)="register(username, password, verifyPassword)" class="btn btn-lg btn-primary btn-block">
+    Register
+  </button>
+  <a routerLink="/login" class="btn btn-lg btn-block btn-success">
+    <i class="fa fa-sign-in" aria-hidden="true"></i>Login
+  </a>
+</div>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+      crossorigin="anonymous">
