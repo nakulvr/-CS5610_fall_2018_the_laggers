@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <h1 class="text-center">User Admin</h1>
+
+  <table class="table" id="user-table">
+    <thead>
+    <tr>
+      <th>Username</th>
+      <th>Password</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Role</th>
+    </tr>
+    </thead>
+    <tr class="wbdv-form">
+      <td><input id="usernameFld" class="form-control"
+                 placeholder="Username" /></td>
+      <td><input id="passwordFld" class="form-control"
+                 placeholder="Password" /></td>
+      <td><input id="firstNameFld" class="form-control"
+                 placeholder="First Name" /></td>
+      <td><input id="lastNameFld" class="form-control"
+                 placeholder="Last Name" /></td>
+      <td><input id="emailFld" class="form-control"
+                 placeholder="Last Name" /></td>
+      <td>
+        <select id="roleFld" class="form-control">
+          <option value="USER">User</option>
+          <option value="ADMIN">Admin</option>
+        </select>
+      </td>
+      <td>
+        <button class="btn btn-success" id="updateBtn">Update</button>
+      </td>
+    </tr>
+
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.username}}</td>
+      <td>{{user.password}}</td>
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.type}}</td>
+      <button class="btn btn-danger" (click)="deleteUser(user._id)">Remove</button>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
