@@ -14,10 +14,10 @@ export class HomeComponent implements OnInit {
                this. reloadLinkNavigation();
   }
 
-  private tvshows = [];
+  tvshows = [];
   private currentPageNum = 1;
   private totalPages = 3;
-  private totalPageArr = [1,2,3,4,5];
+  totalPageArr = [1,2,3,4,5];
   searchTvQuery = "";
   ngOnInit() {
     let defaultSettings = {

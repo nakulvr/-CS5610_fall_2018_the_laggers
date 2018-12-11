@@ -10,7 +10,7 @@ import {UserServiceClient} from './services/user.service.client';
 export class AppComponent {
   title = 'tele-connect';
   username = 'test';
-  private strlen = localStorage.length;
+  strlen = localStorage.length;
   user = JSON.parse(localStorage.getItem('user'));
 
   constructor(private router: Router, private userService: UserServiceClient) {
