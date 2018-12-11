@@ -7,10 +7,19 @@
     {{tvShowDetails}}
   </p>
 
-  <hr>
-  <button (click)="follow()" class="btn btn-danger">
-    Favourite
-  </button>
+  <div *ngIf="isFavourite === 1">
+    <hr>
+    <button (click)="addFavourite()" class="btn btn-success">
+      Add to Favourites
+    </button>
+  </div>
+
+  <div *ngIf="isFavourite === 0">
+    <hr>
+    <button (click)="removeFavourite()" class="btn btn-danger">
+      Remove from Favourites
+    </button>
+  </div>
 
   <hr>
   <h3>TV Series Details</h3>
