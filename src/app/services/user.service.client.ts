@@ -49,6 +49,24 @@ export class UserServiceClient {
     return fetch('https://tele-connect-server.herokuapp.com/api/username/' + username).then(response => response.json());
   }
 
+  createFullUser(username, password, firstName, lastName, email, type) {
+    const user = {
+      username: username,
+      password: password,
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      type: type
+    };
+    return fetch('https://tele-connect-server.herokuapp.com/api/user', {
+      body: JSON.stringify(user),
+      method: 'post',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
+
   createUser(username, password) {
     const user = {
       username: username,

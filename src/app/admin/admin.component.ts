@@ -8,6 +8,12 @@ import {UserServiceClient} from '../services/user.service.client';
 })
 export class AdminComponent implements OnInit {
   users = [];
+  username: any;
+  password: any;
+  firstName: any;
+  lastName: any;
+  email: any;
+  userType = 'FAN';
 
   constructor(private userService: UserServiceClient) {
   }
@@ -15,6 +21,15 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
     this.userService.findAllUsers()
       .then(users => this.users = users);
+  }
+
+  addUser(username, password, firstName, lastName, email, type) {
+    if (username === undefined || password === undefined) {
+      alert('username or password cant be empty');
+    } else {
+      this.userService.createFullUser(username, password, firstName, lastName, email, type)
+        .then(users => this.users = users);
+    }
   }
 
   deleteUser(userId) {

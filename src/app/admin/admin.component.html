@@ -10,31 +10,33 @@
       <th>Last Name</th>
       <th>Email</th>
       <th>Role</th>
+      <th>Add</th>
     </tr>
     </thead>
-    <tr class="wbdv-form">
-      <td><input id="usernameFld" class="form-control"
+    <tbody>
+    <tr>
+      <td><input [(ngModel)]="username" class="form-control"
                  placeholder="Username" /></td>
-      <td><input id="passwordFld" class="form-control"
+      <td><input [(ngModel)]="password" class="form-control"
                  placeholder="Password" /></td>
-      <td><input id="firstNameFld" class="form-control"
+      <td><input [(ngModel)]="firstName" class="form-control"
                  placeholder="First Name" /></td>
-      <td><input id="lastNameFld" class="form-control"
+      <td><input [(ngModel)]="lastName" class="form-control"
                  placeholder="Last Name" /></td>
-      <td><input id="emailFld" class="form-control"
+      <td><input [(ngModel)]="email" class="form-control"
                  placeholder="Last Name" /></td>
       <td>
-        <select id="roleFld" class="form-control">
-          <option value="USER">User</option>
-          <option value="ADMIN">Admin</option>
+        <select [(ngModel)]="userType" class="form-control">
+          <option value="FAN" selected="selected">FAN</option>
+          <option value="ADMIN">ADMIN</option>
         </select>
       </td>
       <td>
-        <button class="btn btn-success" id="updateBtn">Update</button>
+        <button (click)="addUser(username, password, firstName, lastName, email, userType)"
+                class="btn btn-success" id="updateBtn">Add</button>
       </td>
     </tr>
 
-    <tbody>
     <tr *ngFor="let user of users">
       <td>{{user.username}}</td>
       <td>{{user.password}}</td>
@@ -42,7 +44,9 @@
       <td>{{user.lastName}}</td>
       <td>{{user.email}}</td>
       <td>{{user.type}}</td>
-      <button class="btn btn-danger" (click)="deleteUser(user._id)">Remove</button>
+      <td>
+        <button class="btn btn-danger" (click)="deleteUser(user._id)">Remove</button>
+      </td>
     </tr>
     </tbody>
   </table>
