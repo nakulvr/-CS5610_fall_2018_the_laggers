@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
-import {TVServiceClient} from '../services/TVServices';
-import {CommentsService} from '../services/comments.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { TVServiceClient } from '../services/TVServices';
+import { CommentsService } from '../services/comments.service';
+
 import {FollowService} from '../services/follow.client.service';
 import {FavouriteService} from '../services/favourite.service.client';
 

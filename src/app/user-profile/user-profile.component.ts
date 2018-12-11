@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FollowService} from '../services/follow.client.service';
 import {FavouriteService} from '../services/favourite.service.client';
@@ -38,7 +38,7 @@ export class UserProfileComponent implements OnInit {
   // }
 
   ngOnInit() {
-    this.userService.findUserByUserId(this.userId).then(user =>{
+    this.userService.findUserByUserId(this.userId).then(user => {
       this.user = user;
     });
     this.favouriteService.getMyFavouriteMovies(this.userId).then(response => {
@@ -47,7 +47,7 @@ export class UserProfileComponent implements OnInit {
       }
     });
     this.user =
-    this.followers = this.followService.getFollowers(this.userId);
+      this.followers = this.followService.getFollowers(this.userId);
     //   .then(response => {
     //   this.followers = response;
     // });

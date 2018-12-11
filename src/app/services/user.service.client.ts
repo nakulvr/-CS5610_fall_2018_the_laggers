@@ -20,6 +20,7 @@ export class UserServiceClient {
   // setUser(user) {
   //   return fetch('http://localhost:3000/api/session/set/curr_user/' + user.username).then(console.log);
   // }
+
   findAllUsers() {
     return fetch('https://tele-connect-server.herokuapp.com/api/user/').then(response => response.json());
   }
@@ -64,13 +65,14 @@ export class UserServiceClient {
   }
 
   profile() {
-    return fetch('https://tele-connect-server.herokuapp.com/api/profile',
+      return fetch('https://tele-connect-server.herokuapp.com/api/profile',
       {
         credentials: 'include',
       }).then(response => response.json());
   }
 
   updateUser(user) {
+
     return fetch('https://tele-connect-server.herokuapp.com/api/user/' + user._id, {
       method: 'PUT',
       body: JSON.stringify(user),

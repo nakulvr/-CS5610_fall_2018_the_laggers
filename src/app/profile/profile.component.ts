@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserServiceClient} from '../services/user.service.client';
 import {FollowService} from '../services/follow.client.service';
 import {Router} from '@angular/router';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -9,7 +10,7 @@ import {Router} from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
   _id;
-  user ;
+  user;
   username;
   firstName;
   lastName;

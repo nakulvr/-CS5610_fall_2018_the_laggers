@@ -1,14 +1,15 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavouriteService {
-  constructor() {
 
+  constructor() {
   }
 
   setMyFavouriteMovies(tvseriesId: String, userId: String) {
+
     return fetch('http://tele-connect-server.herokuapp.com/api/user/' + userId + '/tvseries/' + tvseriesId + '/favourite')
       .then(response => {
       return response.json();
