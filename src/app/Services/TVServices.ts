@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class TVServiceClient {
-
+ 
   findAllMovies(settings) {
     let defaultSettings = {
       'url': 'https://api.themoviedb.org/3/tv/popular',
@@ -29,5 +29,11 @@ export class TVServiceClient {
   findSeriesById(tvShowId) {
     return fetch('https://api.themoviedb.org/3/tv/' + tvShowId + '?api_key=2a755cc702db2b978534603b24da9899&language=en-US')
       .then(response => response.json());
+  }
+
+  searchSeriesByName(tvSeries){
+    return fetch('https://api.themoviedb.org/3/search/tv?query='+tvSeries+'&api_key=2a755cc702db2b978534603b24da9899&language=en-US&page=1')
+    .then(response => response.json());
+
   }
 }
