@@ -20,6 +20,7 @@ import { MoviesComponent } from './movies/movies.component';
 import { UserCommentsComponent } from './user-comments/user-comments.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
     MoviesComponent,
     UserCommentsComponent,
     UserProfileComponent,
-    ManageUsersComponent
+    ManageUsersComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

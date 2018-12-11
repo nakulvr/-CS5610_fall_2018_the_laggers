@@ -11,7 +11,7 @@ import {UserServiceClient} from '../services/user.service.client';
 })
 export class UserProfileComponent implements OnInit {
   userId;
-  favouriteService;
+  // favouriteService;
   followers;
   following_users;
   tvshows;
@@ -26,24 +26,25 @@ export class UserProfileComponent implements OnInit {
     this.userId = uid;
   }
 
-  follow(){
-    if(localStorage.length==0){
-      alert("Please Login/ Register to follow");
-      return;
-    }
-    const profileUser = JSON.parse(localStorage.getItem("user"));
-    //this.followService.addFollowers(user._id, profileUser.id);
-    //this.followService.addFollowing(profileUser.id, user._id);
-    alert("Follow action is Successful");
-  }
+  // follow(){
+  //   if(localStorage.length==0){
+  //     alert("Please Login/ Register to follow");
+  //     return;
+  //   }
+  //   const profileUser = JSON.parse(localStorage.getItem("user"));
+  //   //this.followService.addFollowers(user._id, profileUser.id);
+  //   //this.followService.addFollowing(profileUser.id, user._id);
+  //   alert("Follow action is Successful");
+  // }
 
   ngOnInit() {
     this.userService.findUserByUserId(this.userId).then(user =>{
       this.user = user;
     });
     this.favouriteService.getMyFavouriteMovies(this.userId).then(response => {
-      if(response.length > 0)
+      if (response.length > 0) {
         this.tvshows = response[0].tvseries;
+      }
     });
     this.user =
     this.followers = this.followService.getFollowers(this.userId);

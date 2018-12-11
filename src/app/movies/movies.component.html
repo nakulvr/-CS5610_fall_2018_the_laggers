@@ -26,41 +26,40 @@
   </table>
   <hr>
 
-  <div>
-    <table>
-      <tr>
-        <td>
-          <h3> Private | </h3>
-        </td>
-        <td>
-          <h3>User 1 : </h3>
-        </td>
-        <td>
-          <h6>
-            The Marvel Cinematic Universe became the first film franchise to gross more than $14 billion with the
-            release of Black Panther
-          </h6>
-        </td>
+  <!--<div>-->
+    <!--<table>-->
+      <!--<tr>-->
+        <!--<td>-->
+          <!--<h3> Private | </h3>-->
+        <!--</td>-->
+        <!--<td>-->
+          <!--<h3>User 1 : </h3>-->
+        <!--</td>-->
+        <!--<td>-->
+          <!--<h6>-->
+            <!--The Marvel Cinematic Universe became the first film franchise to gross more than $14 billion with the-->
+            <!--release of Black Panther-->
+          <!--</h6>-->
+        <!--</td>-->
 
-      </tr>
+      <!--</tr>-->
 
 
-    </table>
-  </div>
+    <!--</table>-->
+  <!--</div>-->
 
-  <hr>
+  <!--<hr>-->
   <div class="form-group">
-    <label for="comment">Comment:</label>
+    <h3 for="comment">Comment:</h3>
     <div class="row" *ngFor="let comment of commentsForSeries">
       <div class="col-md-2"><a href="/profile/{{comment.user._id}}">
           {{comment.user.username}}
         </a></div>
       <div class="col-md-10">
         {{comment.comment}}
-        <hr>
       </div>
     </div>
-
+    <hr>
     <textarea class="form-control col-4" rows="2" [(ngModel)]="comment"></textarea>
   </div>
   <button (click)="postComment()" class="btn btn-primary">
