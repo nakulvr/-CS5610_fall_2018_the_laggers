@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserServiceClient} from '../services/user.service.client';
 import {FollowService} from '../services/follow.client.service';
 import {Router} from '@angular/router';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -9,7 +10,7 @@ import {Router} from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
   _id;
-  user ;
+  user;
   username;
   firstName;
   lastName;
@@ -38,9 +39,9 @@ export class ProfileComponent implements OnInit {
           alert('User Details has been updated successfully');
         }
       });
-    }
-    else
+    } else {
       alert('Password does not match. Please update once again!!!');
+    }
   }
 
   logout() {
@@ -60,17 +61,17 @@ export class ProfileComponent implements OnInit {
     this.verifyPassword = user.password;
   }
 
-  removeFollower(followerId) {
-    this.followService.deleteFollowers().then(response=>{
-      this.followers = response;
-    });
-  }
+  // removeFollower(followerId) {
+  //   this.followService.deleteFollowers().then(response=>{
+  //     this.followers = response;
+  //   });
+  // }
 
-  removeFollowing(followingId){
-    this.followService.deleteFollowing().then(response =>{
-      this.following_users = response;
-    });
-  }
+  // removeFollowing(followingId){
+  //   this.followService.deleteFollowing().then(response =>{
+  //     this.following_users = response;
+  //   });
+  // }
 
   ngOnInit() {
     const name = JSON.parse(localStorage.getItem('user')).name;
@@ -93,4 +94,4 @@ export class ProfileComponent implements OnInit {
   }
 }
 
-import {FavouriteService} from '../Services/favourite.service.client';
+import {FavouriteService} from '../services/favourite.service.client';
