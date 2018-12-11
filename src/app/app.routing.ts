@@ -10,6 +10,7 @@ import {FeedComponent} from './feed/feed.component';
 import {MoviesComponent} from './movies/movies.component';
 import { UserCommentsComponent } from './user-comments/user-comments.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
+import {AdminComponent} from './admin/admin.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {path: 'profile/:uid', component: UserProfileComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'admin', component: AdminComponent},
   {path: 'newShows', component: NewtvComponent},
   {path: 'discover', component: DiscoverComponent},
   {path: 'users', component: UsersComponent},

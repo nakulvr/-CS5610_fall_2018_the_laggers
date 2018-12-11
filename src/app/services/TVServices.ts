@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class TVServiceClient {
- 
+
   findAllMovies(settings) {
     let defaultSettings = {
       'url': 'https://api.themoviedb.org/3/tv/popular',

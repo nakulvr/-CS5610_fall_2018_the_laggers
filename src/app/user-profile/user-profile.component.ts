@@ -26,16 +26,16 @@ export class UserProfileComponent implements OnInit {
     this.userId = uid;
   }
 
-  follow() {
-    if (localStorage.length === 0) {
-      alert('Please Login/ Register to follow');
-      return;
-    }
-    const profileUser = JSON.parse(localStorage.getItem('user'));
-    // this.followService.addFollowers(user._id, profileUser.id);
-    // this.followService.addFollowing(profileUser.id, user._id);
-    alert('Follow action is Successful');
-  }
+  // follow(){
+  //   if(localStorage.length==0){
+  //     alert("Please Login/ Register to follow");
+  //     return;
+  //   }
+  //   const profileUser = JSON.parse(localStorage.getItem("user"));
+  //   //this.followService.addFollowers(user._id, profileUser.id);
+  //   //this.followService.addFollowing(profileUser.id, user._id);
+  //   alert("Follow action is Successful");
+  // }
 
   ngOnInit() {
     this.userService.findUserByUserId(this.userId).then(user => {

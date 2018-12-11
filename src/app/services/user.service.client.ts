@@ -21,8 +21,23 @@ export class UserServiceClient {
   //   return fetch('http://localhost:3000/api/session/set/curr_user/' + user.username).then(console.log);
   // }
 
+  findAllUsers() {
+    return fetch('https://tele-connect-server.herokuapp.com/api/user/').then(response => response.json());
+  }
+
   findUserByUserId(userId) {
     return fetch('https://tele-connect-server.herokuapp.com/api/user/' + userId).then(response => response.json());
+  }
+
+  deleteUser(userId) {
+    return fetch('https://tele-connect-server.herokuapp.com/api/user/' + userId, {
+      method: 'delete'
+    }).then(response => response.json());
+  }
+
+  findUserAdmin(userId) {
+    return fetch('https://tele-connect-server.herokuapp.com/api/user/' + userId + '/admin')
+      .then(response => response.json());
   }
 
   // getUser = () => fetch('http://localhost:3000/api/session/get/curr_user').then(res => res.json());
@@ -31,7 +46,7 @@ export class UserServiceClient {
     const credentials = {
       username: username,
     };
-    return fetch( 'https://tele-connect-server.herokuapp.com/api/username/' + username).then(response => response.json());
+    return fetch('https://tele-connect-server.herokuapp.com/api/username/' + username).then(response => response.json());
   }
 
   createUser(username, password) {
@@ -57,7 +72,8 @@ export class UserServiceClient {
   }
 
   updateUser(user) {
-    return fetch('https://tele-connect-server.herokuapp.com/api/user/'+user._id, {
+
+    return fetch('https://tele-connect-server.herokuapp.com/api/user/' + user._id, {
       method: 'PUT',
       body: JSON.stringify(user),
       headers: {
