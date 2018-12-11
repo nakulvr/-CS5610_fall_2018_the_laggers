@@ -31,9 +31,9 @@ export class TVServiceClient {
       .then(response => response.json());
   }
 
-  searchSeriesByName(tvSeries){
-    return fetch('https://api.themoviedb.org/3/search/tv?query='+tvSeries+'&api_key=2a755cc702db2b978534603b24da9899&language=en-US&page=1')
-    .then(response => response.json());
+  searchSeriesByName(tvSeries) {
+    return fetch('https://api.themoviedb.org/3/search/tv?query=' + tvSeries + '&api_key=2a755cc702db2b978534603b24da9899&language=en-US&page=1')
+      .then(response => response.json());
 
   }
 }
