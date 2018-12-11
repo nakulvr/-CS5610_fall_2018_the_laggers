@@ -86,14 +86,14 @@ export class MoviesComponent implements OnInit {
   ngOnInit() {
     this.getCommentsForMovie();
     this.user = JSON.parse(localStorage.getItem('user'));
-    this.favouriteService.isMyFavouriteTvSeries(this.user.id, this.tvshowId).then(res =>{
+    this.favouriteService.isMyFavouriteTvSeries(this.user.id, this.tvshowId).then(res => {
       if (res === null || (res.constructor === Array && res.length === 0)) {
         this.isFavourite = 1;
       }
-      else{
+      else {
         this.isFavourite = 0;
       }
-    })
+    });
   }
 
 }

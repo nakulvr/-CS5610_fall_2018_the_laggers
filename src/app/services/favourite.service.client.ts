@@ -18,7 +18,7 @@ export class FavouriteService {
   removeFromMyFavouriteMovies(tvshowId, userId) {
     return fetch('http://tele-connect-server.herokuapp.com/api/user/' + userId + '/tvseries/' + tvshowId + '/favourite', {
       method: 'delete'
-    }).then(response => response.json());
+    }).then(response => {return response.json()});
   }
 
   isMyFavouriteTvSeries(userId, tvshowId) {
