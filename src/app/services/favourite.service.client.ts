@@ -9,14 +9,14 @@ export class FavouriteService {
   }
 
   setMyFavouriteMovies(tvseriesId: String, userId: String) {
-    return fetch('http://tele-connect-server.herokuapp.com/api/user/' + userId + '/tvseries/' + tvseriesId + '/favourite')
+    return fetch('https://tele-connect-server.herokuapp.com/api/user/' + userId + '/tvseries/' + tvseriesId + '/favourite')
       .then(response => {
       return response.json();
     });
   }
 
   removeFromMyFavouriteMovies(tvshowId, userId) {
-    return fetch('http://tele-connect-server.herokuapp.com/api/user/' + userId + '/tvseries/' + tvshowId + '/favourite', {
+    return fetch('https://tele-connect-server.herokuapp.com/api/user/' + userId + '/tvseries/' + tvshowId + '/favourite', {
       method: 'delete'
     }).then(response => {return response.json()});
   }
@@ -27,7 +27,7 @@ export class FavouriteService {
   }
 
   getMyFavouriteMovies(userId: String) {
-    return fetch('http://tele-connect-server.herokuapp.com/api/user/' + userId + '/favourite').then(response => {
+    return fetch('https://tele-connect-server.herokuapp.com/api/user/' + userId + '/favourite').then(response => {
       return response.json();
     });
   }
