@@ -3,7 +3,6 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { TVServiceClient } from '../services/TVServices';
 import { CommentsService } from '../services/comments.service';
 
-import {FollowService} from '../services/follow.client.service';
 import {FavouriteService} from '../services/favourite.service.client';
 
 @Component({
@@ -21,6 +20,7 @@ export class MoviesComponent implements OnInit {
   tvShowImage = '';
   commentsForSeries = [];
   comment = '';
+  status;
   user;
   isFavourite = 1;
 
@@ -39,6 +39,9 @@ export class MoviesComponent implements OnInit {
         this.tvShowName = result['name'];
         this.tvShowDetails = result['overview'];
         this.tvShowImage = result['backdrop_path'];
+        this.episodeCount = result['number_of_episodes'];
+        this.seasonCount = result['number_of_seasons'];
+        this.status = result['status'];
       });
   }
 

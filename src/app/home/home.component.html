@@ -1,16 +1,27 @@
-<div>
+<!--<div>-->
+  <!--<ul class="nav">-->
+    <!--<li class="nav-item col-lg-8">-->
+      <!--<input [(ngModel)]="searchTvQuery" class="form-control " placeholder="Search Query"/>-->
+    <!--</li>-->
+    <!--<li class="nav-item col-lg-4">-->
+      <!--<button class="btn-primary btn" (click)="searchQuery()">Search</button>-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</div>-->
+<nav class="navbar navbar-dark bg-dark">
   <ul class="nav">
-  <li class="nav-item col-lg-8">
-    <input [(ngModel)]="searchTvQuery"  class="form-control " placeholder="Search Query"/>
-  </li>
-  <li class="nav-item col-lg-4">
-    <button class="btn-primary btn"  (click)="searchQuery()">Search</button>
-  </li>
-  </ul></div><br><hr>
-  
+    <li class="nav-item col-lg-8">
+      <input [(ngModel)]="searchTvQuery" class="form-control " placeholder="Search Query"/>
+    </li>
+    <li class="nav-item col-lg-4">
+      <button class="btn btn-outline-light my-2 my-sm-0" (click)="searchQuery()">Search</button>
+    </li>
+  </ul>
+</nav>
+<hr>
 <div class="container-fluid">
   <div class="row">
-    <div *ngFor="let tvshow of tvshows" class="col-sm-3" >
+    <div *ngFor="let tvshow of tvshows" class="col-sm-3">
       <div class="card">
         <img class="card-img-top" src="https://image.tmdb.org/t/p/w300{{tvshow.poster_path}}" alt="Card image cap">
         <div class="card-body">
@@ -28,11 +39,11 @@
       <ul class="pagination">
         <li class="page-item">
           <!--// TODO add page num here-->
-          <a class="page-link"  tabindex="-1">Previous</a>
+          <a class="page-link" tabindex="-1">Previous</a>
         </li>
         <!--TODO Pagination for number of results-->
         <li *ngFor="let pageNum of totalPageArr" [ngClass]="{'active': currentPageNum == pageNum}" class="page-item">
-          <a class="page-link"  (click)="paginate(pageNum)">{{pageNum}}</a>
+          <a class="page-link" (click)="paginate(pageNum)">{{pageNum}}</a>
         </li>
         <li class="page-item">
           <!--// TODO add page num here-->

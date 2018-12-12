@@ -18,6 +18,8 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'profile/:uid', component: UserProfileComponent},
+  {path: 'profile/follower/:uid', component: UserProfileComponent},
+  {path: 'profile/following/:uid', component: UserProfileComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'admin', component: AdminComponent},
   {path: 'newShows', component: NewtvComponent},

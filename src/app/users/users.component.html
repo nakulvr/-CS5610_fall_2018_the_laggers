@@ -1,47 +1,65 @@
+<!--<div class="container-fluid">-->
+<!--<h1 class="text-center">All Active Users</h1>-->
+<!--<hr>-->
+<!--<div class="container-fluid">-->
+<!--<div class="card" style="width: 18rem;float:left;margin-right:1%;margin-bottom: 1%;">-->
+<!--<div class="card-body">-->
+<!--<h5 class="card-title text-center">Alice</h5>-->
+<!--<p class="card-text">Som make up the bulk of the card's content.</p>-->
+<!--<button class="btn-danger btn">Follow </button> |-->
+<!--<button class="btn-success btn">Profile</button>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="card" style="width: 18rem;float:left;margin-right:1%;margin-bottom: 1%;">-->
+<!--<div class="card-body">-->
+<!--<h5 class="card-title text-center">Bob</h5>-->
+<!--<p class="card-text">Som make up the bulk of the card's content.</p>-->
+<!--<button class="btn-danger btn">Follow </button> |-->
+<!--<button class="btn-success btn">Profile</button>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="card" style="width: 18rem;float:left;margin-right:1%;margin-bottom: 1%;">-->
+<!--<div class="card-body">-->
+<!--<h5 class="card-title text-center">Charlie</h5>-->
+<!--<p class="card-text">Som make up the bulk of the card's content.</p>-->
+<!--<button class="btn-danger btn">Follow </button> |-->
+<!--<button class="btn-success btn">Profile</button>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="card" style="width: 18rem;float:left;margin-right:1%;margin-bottom: 1%;">-->
+<!--<div class="card-body">-->
+<!--<h5 class="card-title text-center">Charlie</h5>-->
+<!--<p class="card-text">Som make up the bulk of the card's content.</p>-->
+<!--<button class="btn-danger btn">Follow </button> |-->
+<!--<button class="btn-success btn">Profile</button>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="card" style="width: 18rem;float:left;margin-right:1%;margin-bottom: 1%;">-->
+<!--<div class="card-body">-->
+<!--<h5 class="card-title text-center">Charlie</h5>-->
+<!--<p class="card-text">Som make up the bulk of the card's content.</p>-->
+<!--<button class="btn-danger btn">Follow </button> |-->
+<!--<button class="btn-success btn">Profile</button>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
 <div class="container-fluid">
-  <h1 class="text-center">All Active Users</h1>
-  <hr>
-  <div class="container-fluid">
-  <div class="card" style="width: 18rem;float:left;margin-right:1%;margin-bottom: 1%;">
-    <div class="card-body">
-      <h5 class="card-title text-center">Alice</h5>
-      <p class="card-text">Som make up the bulk of the card's content.</p>
-      <button class="btn-danger btn">Follow </button> |
-      <button class="btn-success btn">Profile</button>
-    </div>
-  </div>
-    <div class="card" style="width: 18rem;float:left;margin-right:1%;margin-bottom: 1%;">
-    <div class="card-body">
-      <h5 class="card-title text-center">Bob</h5>
-      <p class="card-text">Som make up the bulk of the card's content.</p>
-      <button class="btn-danger btn">Follow </button> |
-      <button class="btn-success btn">Profile</button>
-    </div>
-  </div>
-    <div class="card" style="width: 18rem;float:left;margin-right:1%;margin-bottom: 1%;">
-    <div class="card-body">
-      <h5 class="card-title text-center">Charlie</h5>
-      <p class="card-text">Som make up the bulk of the card's content.</p>
-      <button class="btn-danger btn">Follow </button> |
-      <button class="btn-success btn">Profile</button>
-    </div>
-  </div>
-
-    <div class="card" style="width: 18rem;float:left;margin-right:1%;margin-bottom: 1%;">
-      <div class="card-body">
-        <h5 class="card-title text-center">Charlie</h5>
-        <p class="card-text">Som make up the bulk of the card's content.</p>
-        <button class="btn-danger btn">Follow </button> |
-        <button class="btn-success btn">Profile</button>
-      </div>
-    </div>
-
-    <div class="card" style="width: 18rem;float:left;margin-right:1%;margin-bottom: 1%;">
-      <div class="card-body">
-        <h5 class="card-title text-center">Charlie</h5>
-        <p class="card-text">Som make up the bulk of the card's content.</p>
-        <button class="btn-danger btn">Follow </button> |
-        <button class="btn-success btn">Profile</button>
+  <div class="row">
+    <div *ngFor="let user of users" class="col-sm-2 my-1">
+      <div class="card">
+        <div class="card-body">
+          <!--<h5 class="card-title">{{user.username}}</h5>-->
+          <h5><a class="card-title" routerLink="/profile/{{user._id}}">{{user.username}}</a></h5>
+          <h3>{{user.email}}</h3>
+          <br>
+          <!--<button class="btn btn-success mt-2"-->
+                  <!--(click)="followUser(user._id)">Follow</button>-->
+          <!--<button class="ml-2 btn btn-danger mt-2"-->
+                  <!--(click)="unfollowUser(user._id)">Unfollow</button>-->
+        </div>
       </div>
     </div>
   </div>

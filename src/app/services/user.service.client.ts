@@ -83,7 +83,7 @@ export class UserServiceClient {
   }
 
   profile() {
-      return fetch('https://tele-connect-server.herokuapp.com/api/profile',
+    return fetch('https://tele-connect-server.herokuapp.com/api/profile',
       {
         credentials: 'include',
       }).then(response => response.json());
@@ -98,6 +98,36 @@ export class UserServiceClient {
         'content-type': 'application/json'
       }
     });
+  }
+
+  followingUser(userId, followingId) {
+    return fetch('https://tele-connect-server.herokuapp.com/api/user/' + userId + '/following/' +
+      followingId + '/follow').then(res => res.json());
+  }
+
+  followerUser(userId, followerId) {
+    return fetch('https://tele-connect-server.herokuapp.com/api/user/' + userId + '/follower/' +
+      followerId + '/follow').then(res => res.json());
+  }
+
+  unfollowingUser(userId, unfollowingId) {
+    return fetch('https://tele-connect-server.herokuapp.com/api/user/' + userId + '/following/' +
+      unfollowingId + '/unfollow').then(res => res.json());
+  }
+
+  unfollowerUser(userId, unfollowerId) {
+    return fetch('https://tele-connect-server.herokuapp.com/api/user/' + userId + '/follower/' +
+      unfollowerId + '/unfollow').then(res => res.json());
+  }
+
+  findFollow(userId) {
+    return fetch('https://tele-connect-server.herokuapp.com/api/user/' + userId + '/follow')
+      .then(res => res.json());
+  }
+
+  findFollowing(userId, followingId) {
+    return fetch('https://tele-connect-server.herokuapp.com/api/user/' + userId + '/following/' + followingId)
+      .then(res => res.json());
   }
 
   logout() {
