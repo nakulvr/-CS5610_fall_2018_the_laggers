@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {FollowService} from '../services/follow.client.service';
+
 import {FavouriteService} from '../services/favourite.service.client';
 import {UserServiceClient} from '../services/user.service.client';
 
@@ -12,12 +12,14 @@ import {UserServiceClient} from '../services/user.service.client';
 export class UserProfileComponent implements OnInit {
   userId;
   // favouriteService;
-  followers;
-  following_users;
+  follower_users = [];
+  following_users = [];
   tvshows;
   user;
+  followingFlag = false;
+  follow;
 
-  constructor(private route: ActivatedRoute, private followService: FollowService, private favouriteService: FavouriteService,
+  constructor(private route: ActivatedRoute, private favouriteService: FavouriteService,
               private userService: UserServiceClient, private router: Router) {
     this.route.params.subscribe(params => this.setParams(params.uid));
   }
@@ -46,15 +48,70 @@ export class UserProfileComponent implements OnInit {
         this.tvshows = response[0].tvseries;
       }
     });
-    this.user =
-      this.followers = this.followService.getFollowers(this.userId);
-    //   .then(response => {
-    //   this.followers = response;
-    // });
-    this.following_users = this.followService.getFollowing(this.userId);
-    //   .then(response => {
-    //   this.following_users = response;
-    // });
+    this.findFollowing(this.userId);
+    this.userService.findFollow(this.userId)
+      .then(res => {
+        this.follow = res;
+        this.setFollowingUsers(this.follow);
+        this.setFollowerUsers(this.follow);
+        // console.log(res);
+      });
+    // console.log(this.follow);
   }
 
+  updateFollow() {
+    this.userService.findFollow(this.userId)
+      .then(res => {
+        this.follow = res;
+        this.setFollowingUsers(this.follow);
+        this.setFollowerUsers(this.follow);
+        console.log(res);
+      });
+  }
+
+  userProfile(uid) {
+    this.router.navigate(['/profile/' + uid]);
+  }
+
+  setFollowingUsers(follow) {
+    // console.log(follow);
+    if (follow !== undefined) {
+      this.following_users = follow.following;
+    }
+  }
+
+  setFollowerUsers(follow) {
+    // console.log(follow);
+    if (follow !== undefined) {
+      this.follower_users = follow.followers;
+    }
+  }
+
+  followUser(followId) {
+    this.userService.followingUser(JSON.parse(localStorage.getItem('user')).id, followId)
+      .then(() =>
+        this.userService.followerUser(JSON.parse(localStorage.getItem('user')).id, followId))
+      .then(() => {
+        this.updateFollow();
+        this.findFollowing(followId);
+      });
+  }
+
+  unfollowUser(followId) {
+    this.userService.unfollowingUser(JSON.parse(localStorage.getItem('user')).id, followId)
+      .then(() =>
+        this.userService.unfollowerUser(JSON.parse(localStorage.getItem('user')).id, followId))
+      .then(() => {
+        this.updateFollow();
+        this.findFollowing(followId);
+      });
+  }
+
+  findFollowing(followId) {
+    this.userService.findFollowing(JSON.parse(localStorage.getItem('user')).id, followId)
+      .then(result => {
+        this.followingFlag = result.length !== 0;
+      });
+    // return following;
+  }
 }
