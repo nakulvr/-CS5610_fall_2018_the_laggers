@@ -60,6 +60,10 @@ export class UserProfileComponent implements OnInit {
   }
 
   updateFollow() {
+    if (localStorage.length === 0) {
+      alert('Please Login/ Register to comment');
+      return;
+    }
     this.userService.findFollow(this.userId)
       .then(res => {
         this.follow = res;
@@ -88,6 +92,10 @@ export class UserProfileComponent implements OnInit {
   }
 
   followUser(followId) {
+    if (localStorage.length === 0) {
+      alert('Please Login/ Register to comment');
+      return;
+    }
     this.userService.followingUser(JSON.parse(localStorage.getItem('user')).id, followId)
       .then(() =>
         this.userService.followerUser(JSON.parse(localStorage.getItem('user')).id, followId))
@@ -98,6 +106,10 @@ export class UserProfileComponent implements OnInit {
   }
 
   unfollowUser(followId) {
+    if (localStorage.length === 0) {
+      alert('Please Login/ Register to comment');
+      return;
+    }
     this.userService.unfollowingUser(JSON.parse(localStorage.getItem('user')).id, followId)
       .then(() =>
         this.userService.unfollowerUser(JSON.parse(localStorage.getItem('user')).id, followId))
