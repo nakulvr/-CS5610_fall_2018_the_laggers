@@ -28,6 +28,14 @@ export class HomeComponent implements OnInit {
     this.listTrendingMovies(defaultSettings);
   }
 
+  createTVseries(tvshow){
+    this.tvService.findTvSeriesInLocal(tvshow.id).then(res => {
+      if ((res === null || (res.constructor === Array && res.length === 0))) {
+        this.tvService.createTVseries(tvshow).then(res => res);
+      }
+      this.router.navigate(['movies/' + tvshow.id]);
+   });
+  }
   paginate(pageNum) {
     this.listTrendingMovies({pageNum: pageNum});
     this.currentPageNum = pageNum;

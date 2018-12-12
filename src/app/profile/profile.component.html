@@ -1,5 +1,4 @@
-<div class="container">
-  <h2> Profile </h2>
+  <h1> Profile </h1>
 
   <div>
     <label for="name" class="fields">Username</label>
@@ -30,72 +29,73 @@
     <label for="email" class="fields">Email</label>
     <input [(ngModel)]="email" placeholder="email@abc.com" id="email" class="form-control form-control-lg" required/>
   </div>
-<br><br>
+  <br><br>
   <div>
     <button (click)="update()" class="btn btn-lg btn-primary btn-block">
       <i class="fa fa-check wbdv-update"></i>Update
     </button>
   </div>
-</div>
-<hr>
-<h1>Comments</h1>
-<hr>
-<h5><a routerLink="/userComments/{{user._id}}">See all my comments</a></h5>
-<hr>
-<h3>Favourite Movies</h3>
-<hr>
-<div class="container-fluid">
-  <div class="row">
-    <div *ngFor="let tvshow of tvshows" class="col-sm-3">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">
-            <a routerLink="/movies/{{tvshow._id}}">{{tvshow.name}}</a>
-          </h4>
-          <h5>Votes: {{tvshow.vote_average}} </h5>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<hr>
-<h3>Followers</h3>
-<hr>
-<div class="container-fluid">
-  <div class="row">
-    <div *ngFor="let follower of follower_users" class="col-sm-3">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">
-            <!--<a (click)="userProfile(follower._id)">{{follower.username}}</a>-->
-            <a routerLink="/profile/follower/{{follower._id}}">{{follower.username}}</a>
-            <!--<h3><span class="badge badge-primary" (click)="userProfile(follower._id)">-->
-            <!--{{follower.username}}</span></h3>-->
-          </h4>
-          <h5>Mail: {{follower.email}} </h5>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<hr>
-<h3>Following</h3>
-<hr>
-<div class="container-fluid">
-  <div class="row">
-    <div *ngFor="let following of following_users" class="col-sm-3">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">
-            <a routerLink="/profile/following/{{following._id}}">{{following.username}}</a>
-            <!--<h3><span class="badge badge-primary" (click)="userProfile(following._id)">-->
-            <!--{{following.username}}</span></h3>-->
-          </h4>
-          <h5>Mail: {{following.email}} </h5>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<hr>
 
+  <hr>
+  <h1>Comments</h1>
+  <hr>
+  <h5><a routerLink="/userComments/{{user._id}}">See all my comments</a></h5>
+  <hr>
+  <h1>Favourite Movies</h1>
+  <hr>
+  <div class="container-fluid">
+    <div class="row">
+      <div *ngFor="let tvshow of tvshows" class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">
+              <a routerLink="/movies/{{tvshow._id}}">{{tvshow.name}}</a>
+            </h4>
+            <h5>Votes: {{tvshow.vote_average}} </h5>
+            <button (click)="removeFavourite(tvshow._id)" class="btn btn-danger"> Remove </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <h1>Followers</h1>
+  <hr>
+  <div class="container-fluid">
+    <div class="row">
+      <div *ngFor="let follower of followers" class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">
+              <a routerLink="/profile/{{follower._id}}">{{follower.username}}</a>
+            </h4>
+            <h5>Votes: {{follower.email}} </h5>
+            <button (click)="removeFollower(follower._id)" class="btn btn-danger"> Remove </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <h1>Followers</h1>
+  <hr>
+  <div class="container-fluid">
+    <div class="row">
+      <div *ngFor="let following of following_users" class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">
+              <a routerLink="/profile/{{following._id}}">{{following.username}}</a>
+            </h4>
+            <h5>Votes: {{following.email}} </h5>
+            <button (click)="removeFollowing(following._id)" class="btn btn-danger"> Remove </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>

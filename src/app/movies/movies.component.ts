@@ -22,6 +22,7 @@ export class MoviesComponent implements OnInit {
   comment = '';
   status;
   user;
+  isFavourite = 1;
 
   constructor(private route: ActivatedRoute, private favouriteService: FavouriteService,
               private commentsService: CommentsService,
@@ -44,12 +45,23 @@ export class MoviesComponent implements OnInit {
       });
   }
 
-  follow() {
+  addFavourite() {
     if (localStorage.length === 0) {
       alert('Please Login/ Register to follow');
       return;
     }
-    this.favouriteService.setMyFavouriteMovies(this.tvshowId, this.user.id).then();
+    this.favouriteService.setMyFavouriteMovies(this.tvshowId, this.user.id).then(response =>{
+      this.isFavourite = 1;
+      location.reload();
+    });
+
+  }
+
+  removeFavourite() {
+    this.favouriteService.removeFromMyFavouriteMovies(this.tvshowId, this.user.id).then(response =>{
+      this.isFavourite = 0;
+      location.reload();
+  });
   }
 
   postComment() {
@@ -77,6 +89,14 @@ export class MoviesComponent implements OnInit {
   ngOnInit() {
     this.getCommentsForMovie();
     this.user = JSON.parse(localStorage.getItem('user'));
+    this.favouriteService.isMyFavouriteTvSeries(this.user.id, this.tvshowId).then(res => {
+      if (res === null || (res.constructor === Array && res.length === 0)) {
+        this.isFavourite = 1;
+      }
+      else {
+        this.isFavourite = 0;
+      }
+    });
   }
 
 }

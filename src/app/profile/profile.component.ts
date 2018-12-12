@@ -99,6 +99,14 @@ export class ProfileComponent implements OnInit {
   //   });
   // }
 
+  removeFavourite(tvshowId) {
+    this.favouriteService.removeFromMyFavouriteMovies(tvshowId, this.user._id).then(response => {
+      if (response.length > 0) {
+        this.tvshows = response[0].tvseries;
+      }
+    });
+  }
+
   ngOnInit() {
     const name = JSON.parse(localStorage.getItem('user')).name;
     this.service.findUserByUsername(name).then(user => {
