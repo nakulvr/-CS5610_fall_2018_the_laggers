@@ -23,10 +23,9 @@ export class LoginComponent implements OnInit {
     this.username = username;
     this.password = password;
     this.service.login(username, password).then(user => {
-      if (user !== null) {
+      if (user !== null || user.length !== 0) {
         localStorage.setItem('user', JSON.stringify({name: user[0].username, id: user[0]._id, type: user[0].type}));
-        location.reload();
-        this.router.navigate(['home']);
+        this.router.navigate(['home']).then(() => location.reload());
       } else {
         alert('Invalid User Credentials. Please try again or Register yourself!!!');
       }
