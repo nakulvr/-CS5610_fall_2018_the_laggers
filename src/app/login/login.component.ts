@@ -24,11 +24,10 @@ export class LoginComponent implements OnInit {
     this.password = password;
     this.service.login(username, password).then(user => {
       if (user !== null) {
-        localStorage.setItem("user",JSON.stringify({name: user[0].username, id: user[0]._id, type: user[0].type}))
+        localStorage.setItem('user', JSON.stringify({name: user[0].username, id: user[0]._id, type: user[0].type}));
         this.router.navigate(['home']);
-        location.reload();
-      }
-      else{
+        // location.reload();
+      } else {
         alert('Invalid User Credentials. Please try again or Register yourself!!!');
       }
     });
@@ -37,8 +36,7 @@ export class LoginComponent implements OnInit {
   loginValidation(user) {
     if (user !== null) {
       this.router.navigate(['home']);
-    }
-    else{
+    } else {
       alert('Invalid User Credentials. Please try again or Register yourself!!!');
     }
   }

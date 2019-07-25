@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register(username, password, verifyPassword) {
-    if (username.length === 0 || password.length === 0 || verifyPassword === 0){
+    if (username.length === 0 || password.length === 0 || verifyPassword === 0) {
       alert('Please enter Proper Username and Password');
       return;
     }
@@ -27,10 +27,9 @@ export class RegisterComponent implements OnInit {
     }
 
     this.userservice.findUserByUsername(username).then((uname) => {
-      if (uname === null || (uname.constructor === Array && uname.length === 0)){
+      if (uname === null || (uname.constructor === Array && uname.length === 0)) {
         this.userservice.createUser(username, password).then(() => this.router.navigate(['login']));
-      }
-      else{
+      } else {
         alert('UserName already exists. Please try a new UserName');
       }
     });
