@@ -47,10 +47,10 @@ export class MoviesComponent implements OnInit {
 
   addFavourite() {
     if (localStorage.length === 0) {
-      alert('Please Login/ Register to follow');
+      alert('Please Login/Register to follow');
       return;
     }
-    this.favouriteService.setMyFavouriteMovies(this.tvshowId, this.user.id).then(response =>{
+    this.favouriteService.setMyFavouriteMovies(this.tvshowId, this.user.id).then(response => {
       this.isFavourite = 1;
       location.reload();
     });
@@ -58,7 +58,7 @@ export class MoviesComponent implements OnInit {
   }
 
   removeFavourite() {
-    this.favouriteService.removeFromMyFavouriteMovies(this.tvshowId, this.user.id).then(response =>{
+    this.favouriteService.removeFromMyFavouriteMovies(this.tvshowId, this.user.id).then(response => {
       this.isFavourite = 0;
       location.reload();
   });
@@ -66,7 +66,7 @@ export class MoviesComponent implements OnInit {
 
   postComment() {
     if (localStorage.length === 0) {
-      alert('Please Login/ Register to comment');
+      alert('Please Login/Register to comment');
       return;
     }
     this.commentsService.postCommentForTVSeries(this.user.id, this.tvshowId, this.comment)
@@ -92,8 +92,7 @@ export class MoviesComponent implements OnInit {
     this.favouriteService.isMyFavouriteTvSeries(this.user.id, this.tvshowId).then(res => {
       if (res === null || (res.constructor === Array && res.length === 0)) {
         this.isFavourite = 1;
-      }
-      else {
+      } else {
         this.isFavourite = 0;
       }
     });
