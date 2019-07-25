@@ -1,48 +1,32 @@
-<div class="container-fluid">
-  <h1>LOGIN</h1>
+<!--<div class="container-fluid">-->
+<!--  <h1>LOGIN</h1>-->
 
-  <input [(ngModel)]="username" placeholder="username" class="form-control my-1"/>
-  <input [(ngModel)]="password" placeholder="password" type="password" class="form-control my-1"/>
+<!--  <input [(ngModel)]="username" placeholder="username" class="form-control my-1"/>-->
+<!--  <input [(ngModel)]="password" placeholder="password" type="password" class="form-control my-1"/>-->
 
-  <button (click)="login(username, password)" class="btn btn-lg btn-primary btn-block my-1"> Login </button>
+<!--  <button (click)="login(username, password)" class="btn btn-lg btn-primary btn-block my-1"> Login </button>-->
 
-  <a routerLink="/register" class="btn btn-lg btn-success btn-block my-1">Register</a>
-    <div class="dropdown-menu">
-      <h1>LOGIN</h1>
-      <form class="px-4 py-3">
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input [(ngModel)]="username" class="form-control" id="username" placeholder="username">
-        </div>
-      </form>
+<!--  <a routerLink="/register" class="btn btn-lg btn-success btn-block my-1">Register</a>-->
+
+<!--</div>-->
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Login Form -->
+    <form>
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
     </div>
 
+  </div>
 </div>
-<!--<div class="container-fluid">-->
-<!--  <div class="dropdown-menu">-->
-<!--    <h1>LOGIN</h1>-->
-<!--    <form class="px-4 py-3">-->
-<!--      <div class="form-group">-->
-<!--        <label for="username">Username</label>-->
-<!--        <input [(ngModel)]="username" class="form-control" id="username" placeholder="username">-->
-<!--      </div>-->
-<!--      <div class="form-group">-->
-<!--        <label for="password">Password</label>-->
-<!--        <input [(ngModel)]="password" type="password" class="form-control" id="password" placeholder="Password">-->
-<!--      </div>-->
-<!--      <div class="form-check">-->
-<!--        <input type="checkbox" class="form-check-input" id="dropdownCheck">-->
-<!--        <label class="form-check-label" for="dropdownCheck">-->
-<!--          Remember me-->
-<!--        </label>-->
-<!--      </div>-->
-<!--      <button (click)="login(username, password)" type="submit" class="btn btn-primary">Sign in</button>-->
-<!--    </form>-->
-<!--    <div class="dropdown-divider"></div>-->
-<!--    <a class="dropdown-item" routerLink="/register">New around here? Sign up</a>-->
-<!--    <a class="dropdown-item" href="#">Forgot password?</a>-->
-<!--  </div>-->
-<!--</div>-->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
       integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
       crossorigin="anonymous">
