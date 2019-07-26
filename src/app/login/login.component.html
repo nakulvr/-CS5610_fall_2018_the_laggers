@@ -15,14 +15,14 @@
 
     <!-- Login Form -->
     <form>
-      <input [(ngModel)]="username" type="text" id="login" class="fadeIn second" name="login" placeholder="username">
-      <input [(ngModel)]="password" type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+      <input [(ngModel)]="username" type="text" id="login" class="mt-4 my-2 fadeIn second" name="login" placeholder="username">
+      <input [(ngModel)]="password" type="password" id="password" class="fadeIn third mb-3 mt-2" name="login" placeholder="password">
       <input (click)="login(username, password)" type="submit" class="fadeIn fourth" value="Log In">
     </form>
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
+      <a routerLink="/register" class="underlineHover" href="#">New user? Register here</a>
     </div>
 
   </div>
