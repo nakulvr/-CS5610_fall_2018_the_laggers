@@ -8,13 +8,14 @@ import {DiscoverComponent} from './discover/discover.component';
 import {UsersComponent} from './users/users.component';
 import {FeedComponent} from './feed/feed.component';
 import {MoviesComponent} from './movies/movies.component';
-import { UserCommentsComponent } from './user-comments/user-comments.component';
+import {UserCommentsComponent } from './user-comments/user-comments.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
 import {AdminComponent} from './admin/admin.component';
+import {AppComponent} from './app.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
+  {path: 'home', component: AppComponent},
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'profile/:uid', component: UserProfileComponent},
@@ -29,7 +30,7 @@ const appRoutes: Routes = [
   {path: 'movies', component: MoviesComponent},
   {path: 'userComments/:uid', component: UserCommentsComponent},
   {path: 'movies/:tvshowId', component: MoviesComponent},
-  {path: '**', component: HomeComponent}
+  {path: '**', component: AppComponent}
   ];
 
 export const routing = RouterModule.forRoot(appRoutes);
