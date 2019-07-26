@@ -11,7 +11,6 @@ import {MoviesComponent} from './movies/movies.component';
 import {UserCommentsComponent } from './user-comments/user-comments.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
 import {AdminComponent} from './admin/admin.component';
-import {AppComponent} from './app.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
