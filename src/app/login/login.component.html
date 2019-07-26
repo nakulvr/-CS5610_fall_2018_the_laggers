@@ -1,13 +1,31 @@
-<div class="container-fluid">
-  <h1>LOGIN</h1>
+<!--<div class="container-fluid">-->
+<!--  <h1>LOGIN</h1>-->
 
-  <input [(ngModel)]="username" placeholder="username" class="form-control my-1"/>
-  <input [(ngModel)]="password" placeholder="password" type="password" class="form-control my-1"/>
+<!--  <input [(ngModel)]="username" placeholder="username" class="form-control my-1"/>-->
+<!--  <input [(ngModel)]="password" placeholder="password" type="password" class="form-control my-1"/>-->
 
-  <button (click)="login(username, password)" class="btn btn-lg btn-primary btn-block my-1"> Login </button>
+<!--  <button (click)="login(username, password)" class="btn btn-lg btn-primary btn-block my-1"> Login </button>-->
 
-  <a routerLink="/register" class="btn btn-lg btn-success btn-block my-1">Register</a>
+<!--  <a routerLink="/register" class="btn btn-lg btn-success btn-block my-1">Register</a>-->
 
+<!--</div>-->
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Login Form -->
+    <form>
+      <input [(ngModel)]="username" type="text" id="login" class="fadeIn second" name="login" placeholder="username">
+      <input [(ngModel)]="password" type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+      <input (click)="login(username, password)" type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+  </div>
 </div>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
       integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
