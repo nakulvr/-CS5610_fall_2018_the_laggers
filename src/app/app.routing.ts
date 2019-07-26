@@ -15,7 +15,7 @@ import {AppComponent} from './app.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: AppComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'profile/:uid', component: UserProfileComponent},
@@ -30,7 +30,7 @@ const appRoutes: Routes = [
   {path: 'movies', component: MoviesComponent},
   {path: 'userComments/:uid', component: UserCommentsComponent},
   {path: 'movies/:tvshowId', component: MoviesComponent},
-  {path: '**', component: AppComponent}
+  {path: '**', component: HomeComponent}
   ];
 
 export const routing = RouterModule.forRoot(appRoutes);
