@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Router} from '@angular/router';
+import {NavigationExtras, Router} from '@angular/router';
 import {UserServiceClient} from './services/user.service.client';
 
 @Component({
@@ -12,8 +12,19 @@ export class AppComponent {
   username = 'test';
   strlen = localStorage.length;
   user = JSON.parse(localStorage.getItem('user'));
+  searchTvQuery = '';
 
   constructor(private router: Router, private userService: UserServiceClient) {
+  }
+
+  searchQuery() {
+    console.log(this.searchTvQuery);
+    const navigationExtras: NavigationExtras = {
+      queryParams: {
+        'search': this.searchTvQuery
+      }
+    };
+    this.router.navigate(['home'],  navigationExtras);
   }
 
   isAdmin() {

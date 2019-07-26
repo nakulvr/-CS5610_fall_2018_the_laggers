@@ -19,23 +19,31 @@ export class HomeComponent implements OnInit {
   private currentPageNum = 1;
   private totalPages = 3;
   totalPageArr = [1, 2, 3, 4, 5];
-  searchTvQuery = '';
+  // searchTvQuery = '';
 
   ngOnInit() {
-    const defaultSettings = {
-      pageNum: 1
-    };
-    this.listTrendingMovies(defaultSettings);
+    this.route.queryParams.subscribe(params => {
+        if (params.length === 0) {
+          const defaultSettings = {
+            pageNum: 1
+          };
+          this.listTrendingMovies(defaultSettings);
+        } else {
+          this.searchQuery(JSON.parse(params['search']));
+        }
+      }
+    );
   }
 
-  createTVseries(tvshow){
+  createTVseries(tvshow) {
     this.tvService.findTvSeriesInLocal(tvshow.id).then(res => {
       if ((res === null || (res.constructor === Array && res.length === 0))) {
         this.tvService.createTVseries(tvshow).then(res => res);
       }
       this.router.navigate(['movies/' + tvshow.id]);
-   });
+    });
   }
+
   paginate(pageNum) {
     this.listTrendingMovies({pageNum: pageNum});
     this.currentPageNum = pageNum;
@@ -51,8 +59,8 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  searchQuery() {
-    this.tvService.searchSeriesByName(this.searchTvQuery)
+  searchQuery(searchTvQuery) {
+    this.tvService.searchSeriesByName(searchTvQuery)
       .then(movies => {
         this.tvshows = movies.results;
         this.totalPages = movies.total_pages;
