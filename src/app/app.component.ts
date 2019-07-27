@@ -10,6 +10,7 @@ import {UserServiceClient} from './services/user.service.client';
 export class AppComponent {
   title = 'tele-connect';
   username = 'test';
+  isCollapsed = false;
   strlen = localStorage.length;
   user = JSON.parse(localStorage.getItem('user'));
   searchTvQuery = '';

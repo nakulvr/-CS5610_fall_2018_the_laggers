@@ -21,6 +21,7 @@ import { UserCommentsComponent } from './user-comments/user-comments.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { AdminComponent } from './admin/admin.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AdminComponent } from './admin/admin.component';
     AppRoutingModule,
     routing,
     FormsModule,
+    NgbModule
   ],
   providers: [TVServiceClient,
     UserServiceClient],
