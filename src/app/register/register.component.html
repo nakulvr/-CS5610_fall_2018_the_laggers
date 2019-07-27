@@ -1,26 +1,17 @@
-<!--<div class="container-fluid">-->
-<!--  <h1>Register</h1>-->
-
-<!--  <input [(ngModel)]="username" placeholder="username" class="form-control my-1"/><br>-->
-<!--  <input [(ngModel)]="password" placeholder="password" type="password" class="form-control my-1"/><br>-->
-<!--  <input [(ngModel)]="verifyPassword" placeholder="verify password" type="password" class="form-control my-1"/><br>-->
-<!--  <button (click)="register(username, password, verifyPassword)" class="btn btn-lg btn-primary btn-block my-1">-->
-<!--    Register-->
-<!--  </button>-->
-<!--  <a routerLink="/login" class="btn btn-lg btn-block btn-success my-1">-->
-<!--    <i class="fa fa-sign-in" aria-hidden="true"></i>Login-->
-<!--  </a>-->
-<!--</div>-->
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <!-- Tabs Titles -->
 
     <!-- Login Form -->
     <form>
-      <input [(ngModel)]="username" type="text" id="username" class="mt-4 my-2 fadeIn second" name="register" placeholder="username">
-      <input [(ngModel)]="password" type="password" id="password" class="fadeIn third mb-3 mt-2" name="register" placeholder="password">
-      <input [(ngModel)]="verifyPassword" type="password" id="verifyPassword" class="fadeIn third mb-3 mt-2" name="register" placeholder="password">
-      <input (click)="register(username, password, verifyPassword)" type="submit" class="fadeIn fourth" value="Register">
+      <input [(ngModel)]="username" type="text" id="username" class="mt-4 my-2 fadeIn second" name="register"
+             placeholder="username">
+      <input [(ngModel)]="password" type="password" id="password" class="fadeIn third mb-3 mt-2" name="register"
+             placeholder="password">
+      <input [(ngModel)]="verifyPassword" type="password" id="verifyPassword" class="fadeIn third mb-3 mt-2"
+             name="register" placeholder=" confirm password">
+      <input (click)="register(username, password, verifyPassword)" type="submit" class="fadeIn fourth"
+             value="Register">
     </form>
 
     <!-- Remind Passowrd -->
