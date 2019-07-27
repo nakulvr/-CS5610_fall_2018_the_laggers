@@ -19,12 +19,10 @@ export class HomeComponent implements OnInit {
   private currentPageNum = 1;
   private totalPages = 3;
   totalPageArr = [1, 2, 3, 4, 5];
-  // searchTvQuery = '';
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      console.log(params.length);
-        if (params.length === 0) {
+        if (HomeComponent.isEmpty(params) || params['search'] === '') {
           const defaultSettings = {
             pageNum: 1
           };
@@ -34,6 +32,15 @@ export class HomeComponent implements OnInit {
         }
       }
     );
+  }
+
+  static isEmpty(obj) {
+    for (var key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        return false;
+      }
+    }
+    return true;
   }
 
   createTVseries(tvshow) {

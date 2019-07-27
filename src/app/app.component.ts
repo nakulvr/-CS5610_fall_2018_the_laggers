@@ -18,7 +18,6 @@ export class AppComponent {
   }
 
   searchQuery() {
-    console.log(this.searchTvQuery);
     this.router.navigate(['home'], {
       queryParams: {
         'search': this.searchTvQuery
