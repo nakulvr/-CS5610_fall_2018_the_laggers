@@ -23,14 +23,14 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      console.log(params);
+      console.log(params.length);
         if (params.length === 0) {
           const defaultSettings = {
             pageNum: 1
           };
           this.listTrendingMovies(defaultSettings);
         } else {
-          this.searchQuery(JSON.parse(params['search']));
+          this.searchQuery(params['search']);
         }
       }
     );
