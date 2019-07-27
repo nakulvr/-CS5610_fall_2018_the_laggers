@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
+      console.log(params);
         if (params.length === 0) {
           const defaultSettings = {
             pageNum: 1

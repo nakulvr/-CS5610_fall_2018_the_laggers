@@ -19,12 +19,11 @@ export class AppComponent {
 
   searchQuery() {
     console.log(this.searchTvQuery);
-    const navigationExtras: NavigationExtras = {
+    this.router.navigate(['home'], {
       queryParams: {
         'search': this.searchTvQuery
       }
-    };
-    this.router.navigate(['home'],  navigationExtras);
+    });
   }
 
   isAdmin() {
