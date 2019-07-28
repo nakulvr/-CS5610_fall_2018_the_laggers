@@ -1,17 +1,18 @@
-<div class="form-group">
+<div class="form-group container-fluid">
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-2">
       <h5>TV Series</h5>
     </div>
-    <div class="col-md-10">
+    <div class="col-10">
       <h5>Your Comments</h5>
     </div>
   </div>
   <div class="row" *ngFor="let comment of myComments">
     <div class="col-md-2">
       <a href="movies/{{comment.tvseries._id}}">
-      {{comment.tvseries.name}}
+        {{comment.tvseries.name}}
       </a>
+      <hr>
     </div>
     <div class="col-md-10">
       {{comment.comment}}
