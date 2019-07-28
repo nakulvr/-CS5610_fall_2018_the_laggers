@@ -47,7 +47,7 @@ export class MoviesComponent implements OnInit {
 
   addFavourite() {
     if (localStorage.length === 0) {
-      alert('Please Login/Register to follow');
+      alert('Please Login/Register to add favourite');
       return;
     }
     this.favouriteService.setMyFavouriteMovies(this.tvshowId, this.user.id).then(response => {

@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <h1 class="text-center">{{tvShowName}}</h1>
   <hr>
-  <img src="https://image.tmdb.org/t/p/w780/{{tvShowImage}}" class="img-fluid" alt="Responsive image">
+  <img src="https://image.tmdb.org/t/p/w780/{{tvShowImage}}" class="img-thumbnail rounded mx-auto d-block img-fluid" alt="Responsive image">
   <hr>
   <p>
     {{tvShowDetails}}
@@ -93,7 +93,7 @@
       </div>
     </div>
     <hr>
-    <textarea class="form-control col-4" rows="2" [(ngModel)]="comment"></textarea>
+    <textarea class="form-control" rows="2" [(ngModel)]="comment"></textarea>
   </div>
   <button (click)="postComment()" class="btn btn-primary">
     Comment
